@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:soursopitem"
+	},
+	{
+		"item": "pamhc2trees:soursopitem"
+	},
+	{
+		"item": "pamhc2trees:soursopitem"
+	},
+	{
+		"item": "pamhc2trees:soursopitem"
+	},
+	{
+		"item": "pamhc2trees:soursopitem"
+	},
+	{
+		"item": "pamhc2trees:soursopitem"
+	},
+	{
+		"item": "pamhc2trees:soursopitem"
+	},
+	{
+		"item": "pamhc2trees:soursopitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:soursop_sapling"
+	}
+
+}

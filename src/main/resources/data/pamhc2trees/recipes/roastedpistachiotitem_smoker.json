@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:smoking",
+	"ingredient": {"tag": "forge:crops/pistachio"},
+	"result": "pamhc2trees:roastedpistachioitem",
+	"experience": 0.35,
+	"cookingtime": 100
+
+}

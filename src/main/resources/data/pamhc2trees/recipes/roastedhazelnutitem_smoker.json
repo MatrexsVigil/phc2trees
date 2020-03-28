@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:smoking",
+	"ingredient": {"tag": "forge:crops/hazelnut"},
+	"result": "pamhc2trees:roastedhazelnutitem",
+	"experience": 0.35,
+	"cookingtime": 100
+
+}

@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:pistachioitem"
+	},
+	{
+		"item": "pamhc2trees:pistachioitem"
+	},
+	{
+		"item": "pamhc2trees:pistachioitem"
+	},
+	{
+		"item": "pamhc2trees:pistachioitem"
+	},
+	{
+		"item": "pamhc2trees:pistachioitem"
+	},
+	{
+		"item": "pamhc2trees:pistachioitem"
+	},
+	{
+		"item": "pamhc2trees:pistachioitem"
+	},
+	{
+		"item": "pamhc2trees:pistachioitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:pistachio_sapling"
+	}
+
+}

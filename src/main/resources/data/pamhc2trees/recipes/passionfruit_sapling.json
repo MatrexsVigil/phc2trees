@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:passionfruititem"
+	},
+	{
+		"item": "pamhc2trees:passionfruititem"
+	},
+	{
+		"item": "pamhc2trees:passionfruititem"
+	},
+	{
+		"item": "pamhc2trees:passionfruititem"
+	},
+	{
+		"item": "pamhc2trees:passionfruititem"
+	},
+	{
+		"item": "pamhc2trees:passionfruititem"
+	},
+	{
+		"item": "pamhc2trees:passionfruititem"
+	},
+	{
+		"item": "pamhc2trees:passionfruititem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:passionfruit_sapling"
+	}
+
+}

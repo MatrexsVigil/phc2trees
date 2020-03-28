@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:limeitem"
+	},
+	{
+		"item": "pamhc2trees:limeitem"
+	},
+	{
+		"item": "pamhc2trees:limeitem"
+	},
+	{
+		"item": "pamhc2trees:limeitem"
+	},
+	{
+		"item": "pamhc2trees:limeitem"
+	},
+	{
+		"item": "pamhc2trees:limeitem"
+	},
+	{
+		"item": "pamhc2trees:limeitem"
+	},
+	{
+		"item": "pamhc2trees:limeitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:lime_sapling"
+	}
+
+}

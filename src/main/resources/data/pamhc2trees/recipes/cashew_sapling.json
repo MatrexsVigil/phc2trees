@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:cashewitem"
+	},
+	{
+		"item": "pamhc2trees:cashewitem"
+	},
+	{
+		"item": "pamhc2trees:cashewitem"
+	},
+	{
+		"item": "pamhc2trees:cashewitem"
+	},
+	{
+		"item": "pamhc2trees:cashewitem"
+	},
+	{
+		"item": "pamhc2trees:cashewitem"
+	},
+	{
+		"item": "pamhc2trees:cashewitem"
+	},
+	{
+		"item": "pamhc2trees:cashewitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:cashew_sapling"
+	}
+
+}

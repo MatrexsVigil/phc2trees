@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:rambutanitem"
+	},
+	{
+		"item": "pamhc2trees:rambutanitem"
+	},
+	{
+		"item": "pamhc2trees:rambutanitem"
+	},
+	{
+		"item": "pamhc2trees:rambutanitem"
+	},
+	{
+		"item": "pamhc2trees:rambutanitem"
+	},
+	{
+		"item": "pamhc2trees:rambutanitem"
+	},
+	{
+		"item": "pamhc2trees:rambutanitem"
+	},
+	{
+		"item": "pamhc2trees:rambutanitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:rambutan_sapling"
+	}
+
+}

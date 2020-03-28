@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "pamhc2trees:block/maple_stage_0"
+    }
+}
+

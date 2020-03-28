@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:oliveitem"
+	},
+	{
+		"item": "pamhc2trees:oliveitem"
+	},
+	{
+		"item": "pamhc2trees:oliveitem"
+	},
+	{
+		"item": "pamhc2trees:oliveitem"
+	},
+	{
+		"item": "pamhc2trees:oliveitem"
+	},
+	{
+		"item": "pamhc2trees:oliveitem"
+	},
+	{
+		"item": "pamhc2trees:oliveitem"
+	},
+	{
+		"item": "pamhc2trees:oliveitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:olive_sapling"
+	}
+
+}

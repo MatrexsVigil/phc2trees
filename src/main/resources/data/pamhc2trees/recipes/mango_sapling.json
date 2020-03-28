@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:mangoitem"
+	},
+	{
+		"item": "pamhc2trees:mangoitem"
+	},
+	{
+		"item": "pamhc2trees:mangoitem"
+	},
+	{
+		"item": "pamhc2trees:mangoitem"
+	},
+	{
+		"item": "pamhc2trees:mangoitem"
+	},
+	{
+		"item": "pamhc2trees:mangoitem"
+	},
+	{
+		"item": "pamhc2trees:mangoitem"
+	},
+	{
+		"item": "pamhc2trees:mangoitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:mango_sapling"
+	}
+
+}
