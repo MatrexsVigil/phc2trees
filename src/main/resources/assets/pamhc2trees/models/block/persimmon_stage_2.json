@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "pamhc2trees:block/persimmon_stage_2"
+    }
+}

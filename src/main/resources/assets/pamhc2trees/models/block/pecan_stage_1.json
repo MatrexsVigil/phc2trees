@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "pamhc2trees:block/pecan_stage_1"
+    }
+}

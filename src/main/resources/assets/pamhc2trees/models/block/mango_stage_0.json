@@ -1,0 +1,7 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "pamhc2trees:block/mango_stage_0"
+    }
+}
+

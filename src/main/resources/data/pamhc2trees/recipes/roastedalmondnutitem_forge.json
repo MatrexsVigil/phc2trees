@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {"tag": "forge:crops/almond"},
+	"result": "pamhc2trees:roastedalmonditem",
+	"experience": 0.35,
+	"cookingtime": 200
+
+}

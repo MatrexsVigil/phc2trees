@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "pamhc2trees:block/durian_stage_2"
+    }
+}

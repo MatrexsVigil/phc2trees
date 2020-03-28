@@ -1,0 +1,7 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "pamhc2trees:block/jackfruit_stage_0"
+    }
+}
+

@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {"tag": "forge:crops/cashew"},
+	"result": "pamhc2trees:roastedcashewitem",
+	"experience": 0.35,
+	"cookingtime": 200
+
+}

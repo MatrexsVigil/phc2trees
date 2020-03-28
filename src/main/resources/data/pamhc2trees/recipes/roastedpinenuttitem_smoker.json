@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:smoking",
+	"ingredient": {"tag": "forge:crops/pinenut"},
+	"result": "pamhc2trees:roastedpinenutitem",
+	"experience": 0.35,
+	"cookingtime": 100
+
+}

@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:starfruititem"
+	},
+	{
+		"item": "pamhc2trees:starfruititem"
+	},
+	{
+		"item": "pamhc2trees:starfruititem"
+	},
+	{
+		"item": "pamhc2trees:starfruititem"
+	},
+	{
+		"item": "pamhc2trees:starfruititem"
+	},
+	{
+		"item": "pamhc2trees:starfruititem"
+	},
+	{
+		"item": "pamhc2trees:starfruititem"
+	},
+	{
+		"item": "pamhc2trees:starfruititem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:starfruit_sapling"
+	}
+
+}
