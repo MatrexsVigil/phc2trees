@@ -105,10 +105,7 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
 
-		if (world.getBlockState(pos.up()).getBlock().isIn(BlockTags.LEAVES))
-			return true;
-
-		return false;
+		return true;
 		
 	}
 
