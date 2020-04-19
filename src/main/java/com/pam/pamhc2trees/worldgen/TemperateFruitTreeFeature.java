@@ -240,7 +240,7 @@ public class TemperateFruitTreeFeature extends Feature<NoFeatureConfig> {
 		switch (verify) {
 		case 1:
 			if (EnableConfig.apple_worldgen != null)
-			return BlockRegistry.pamalmond.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamapple.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
 		case 2:
 			if (EnableConfig.avocado_worldgen != null)
 			return BlockRegistry.pamavocado.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
@@ -284,12 +284,9 @@ public class TemperateFruitTreeFeature extends Feature<NoFeatureConfig> {
 			if (EnableConfig.hazelnut_worldgen != null)
 			return BlockRegistry.pamhazelnut.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
 		case 16:
-			if (EnableConfig.hazelnut_worldgen != null)
-			return BlockRegistry.pamhazelnut.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
-		case 17:
 			if (EnableConfig.pawpaw_worldgen != null)
 			return BlockRegistry.pampawpaw.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
-		case 18:
+		case 17:
 			if (EnableConfig.soursop_worldgen != null)
 			return BlockRegistry.pamsoursop.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
 		default:

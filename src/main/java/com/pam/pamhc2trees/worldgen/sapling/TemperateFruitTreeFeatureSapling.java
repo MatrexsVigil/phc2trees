@@ -285,10 +285,10 @@ public class TemperateFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			return BlockRegistry.pamhazelnut.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
 		case 16:
 			if (EnableConfig.pawpaw_worldgen != null)
-			return BlockRegistry.pamhazelnut.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pampawpaw.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
 		case 17:
 			if (EnableConfig.soursop_worldgen != null)
-			return BlockRegistry.pampawpaw.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamsoursop.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
 		default:
 			return BlockRegistry.pamapple.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
 		}

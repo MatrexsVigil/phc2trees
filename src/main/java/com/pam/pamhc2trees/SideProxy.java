@@ -3,6 +3,7 @@ package com.pam.pamhc2trees;
 import com.pam.pamhc2trees.config.Config;
 import com.pam.pamhc2trees.config.FeatureConfig;
 import com.pam.pamhc2trees.config.RightClickConfig;
+import com.pam.pamhc2trees.events.EventSetup;
 import com.pam.pamhc2trees.events.TemptationTask;
 import com.pam.pamhc2trees.events.harvest.FruitHarvest;
 import com.pam.pamhc2trees.init.BlockRegistry;
@@ -27,6 +28,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 
+
 public class SideProxy {
 	SideProxy() {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.CONFIG, "pamhc2trees.toml");
@@ -46,13 +48,8 @@ public class SideProxy {
 	
 	private static void commonSetup(FMLCommonSetupEvent event) {
 		Pamhc2trees.LOGGER.debug("common setup");
+		EventSetup.setupEvents();
 		
-		MinecraftForge.EVENT_BUS.register(new TemptationTask());
-
-		if (FeatureConfig.rightclick_harvest.get()) {
-			if (RightClickConfig.crop_right_click.get())
-				MinecraftForge.EVENT_BUS.register(new FruitHarvest());
-		}
 
 		TemperateFruitTreeWorldGenRegistry.register();
 		WarmFruitTreeWorldGenRegistry.register();
