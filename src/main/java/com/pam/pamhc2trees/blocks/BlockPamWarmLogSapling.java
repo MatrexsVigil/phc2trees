@@ -66,6 +66,7 @@ public class BlockPamWarmLogSapling extends BushBlock implements IGrowable {
 	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
 		return (double) worldIn.rand.nextFloat() < 0.45D;
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public void grow(ServerWorld p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
@@ -75,5 +76,20 @@ public class BlockPamWarmLogSapling extends BushBlock implements IGrowable {
 	@Override
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(STAGE);
+=======
+
+	public void grow(World worldIn, Random rand, BlockPos pos, BlockState state) {
+		this.grow(worldIn, pos, state, rand);
+	}
+
+	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+		builder.add(STAGE);
+	}
+
+	@Override
+	public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+		this.grow(world, pos, state, random);
+
+>>>>>>> a718415404fff4dc7f9554c7ed366650db5e7f43
 	}
 }

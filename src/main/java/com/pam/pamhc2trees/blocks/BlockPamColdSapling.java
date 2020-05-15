@@ -68,6 +68,7 @@ public class BlockPamColdSapling extends BushBlock implements IGrowable {
 	}
 	
 	@Override
+<<<<<<< HEAD
 	public void grow(ServerWorld p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
 	      this.func_226942_a_(p_225535_1_, p_225535_3_, p_225535_4_, p_225535_2_);
 	   }
@@ -75,5 +76,10 @@ public class BlockPamColdSapling extends BushBlock implements IGrowable {
 	@Override
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(STAGE);
+=======
+	public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+		this.grow(world, pos, state, random);
+		
+>>>>>>> a718415404fff4dc7f9554c7ed366650db5e7f43
 	}
 }
