@@ -59,6 +59,7 @@ public class BlockPamFruit extends Block implements IGrowable {
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
 		if (!state.isValidPosition(worldIn, pos)) {
 	         worldIn.destroyBlock(pos, true);
+	         return;
 	      }
 		super.tick(state, worldIn, pos, random);
 		int i = state.get(AGE);
@@ -120,7 +121,7 @@ public class BlockPamFruit extends Block implements IGrowable {
 	@Override
 	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
 		if (!isValidPosition(stateIn,worldIn,currentPos)) {
-			worldIn.getPendingBlockTicks().scheduleTick(currentPos, this, 1);
+			worldIn.getPendingBlockTicks().scheduleTick(currentPos, this, 2);
 		}
 
 		return stateIn;
