@@ -176,7 +176,7 @@ public class BlockRegistry {
 		pamcashew = register("pamcashew", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "cashew"));
 		pamcinnamon = register("pamcinnamon", new BlockPamLogFruit(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "cinnamon"));
+				.tickRandomly().sound(SoundType.CROP), "cinnamon"));
 		pamcoconut = register("pamcoconut", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "coconut"));
 		pamdate = register("pamdate", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
@@ -198,7 +198,7 @@ public class BlockRegistry {
 		pampapaya = register("pampapaya", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "papaya"));
 		pampaperbark = register("pampaperbark", new BlockPamLogFruit(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "paperbark"));
+				.tickRandomly().sound(SoundType.CROP), "paperbark"));
 		pampecan = register("pampecan", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pecan"));
 		pampeppercorn = register("pampeppercorn", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
@@ -229,7 +229,7 @@ public class BlockRegistry {
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "tamarind"));
 		//Cold Fruits
 		pammaple = register("pammaple", new BlockPamLogFruit(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "maple"));
+				.tickRandomly().sound(SoundType.CROP), "maple"));
 		pampinenut = register("pampinenut", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pinenut"));
 		
