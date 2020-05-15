@@ -71,10 +71,10 @@ public class BlockPamWarmSapling extends BushBlock implements IGrowable {
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(STAGE);
 	}
-	
+
 	@Override
-	public void grow(ServerWorld p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
-		this.grow(p_225535_1_, p_225535_2_, p_225535_3_, p_225535_4_);
-		
+	public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+		this.grow(world, pos, state, random);
+
 	}
 }
