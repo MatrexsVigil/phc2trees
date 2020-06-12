@@ -3,7 +3,7 @@ package com.pam.pamhc2trees;
 import com.pam.pamhc2trees.config.Config;
 import com.pam.pamhc2trees.config.FeatureConfig;
 import com.pam.pamhc2trees.config.RightClickConfig;
-import com.pam.pamhc2trees.events.EventSetup;
+//import com.pam.pamhc2trees.events.EventSetup;
 import com.pam.pamhc2trees.events.TemptationTask;
 import com.pam.pamhc2trees.events.harvest.FruitHarvest;
 import com.pam.pamhc2trees.init.BlockRegistry;
@@ -36,20 +36,20 @@ public class SideProxy {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(SideProxy::enqueueIMC);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(SideProxy::processIMC);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(BlockRegistry::registerAll);
-		
+
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(ItemRegistry::registerAll);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(WorldGenRegistry::registerAll);
-		
+
 		Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml").toString());
 
 		MinecraftForge.EVENT_BUS.addListener(SideProxy::serverStarting);
 	}
 
-	
+
 	private static void commonSetup(FMLCommonSetupEvent event) {
 		Pamhc2trees.LOGGER.debug("common setup");
-		EventSetup.setupEvents();
-		
+//		EventSetup.setupEvents();
+
 
 		TemperateFruitTreeWorldGenRegistry.register();
 		WarmFruitTreeWorldGenRegistry.register();
@@ -57,7 +57,7 @@ public class SideProxy {
 		CompostRegistry.register();
 
 
-		
+
 	}
 
 	private static void enqueueIMC(final InterModEnqueueEvent event) {
