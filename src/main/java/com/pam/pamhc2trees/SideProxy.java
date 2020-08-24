@@ -15,6 +15,8 @@ import com.pam.pamhc2trees.init.TemperateFruitTreeWorldGenRegistry;
 import com.pam.pamhc2trees.init.WarmFruitTreeWorldGenRegistry;
 import com.pam.pamhc2trees.init.WorldGenRegistry;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
