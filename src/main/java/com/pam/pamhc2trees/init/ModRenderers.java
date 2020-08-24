@@ -1,0 +1,115 @@
+package com.pam.pamhc2trees.init;
+
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
+
+public class ModRenderers {
+	public static void registerBlocks() {
+		
+		//Temperate Fruits
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamapple, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamavocado, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamcandlenut, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamcherry, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamchestnut, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamgooseberry, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamlemon, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamnutmeg, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamorange, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pampeach, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pampear, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamplum, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamwalnut, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamspiderweb, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamhazelnut, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pampawpaw, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamsoursop, RenderType.cutout());
+			//Warm Fruits
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamalmond, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamapricot, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pambanana, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamcashew, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamcinnamon, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamcoconut, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamdate, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamdragonfruit, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamdurian, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamfig, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamgrapefruit, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamlime, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pammango, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamolive, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pampapaya, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pampaperbark, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pampecan, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pampeppercorn, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pampersimmon, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pampistachio, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pampomegranate, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamstarfruit, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamvanillabean, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pambreadfruit, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamguava, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamjackfruit, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamlychee, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pampassionfruit, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamrambutan, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pamtamarind, RenderType.cutout());
+			//Cold Fruits
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pammaple, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pampinenut, RenderType.cutout());
+			
+			//Temperate Saplings
+		RenderTypeLookup.setRenderLayer(BlockRegistry.apple_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.avocado_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.candlenut_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.cherry_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.chestnut_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.gooseberry_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.lemon_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.nutmeg_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.orange_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.peach_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pear_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.plum_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.walnut_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.spiderweb_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.hazelnut_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pawpaw_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.soursop_sapling, RenderType.cutout());
+			//Warm Saplings
+		RenderTypeLookup.setRenderLayer(BlockRegistry.almond_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.apricot_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.banana_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.cashew_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.cinnamon_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.coconut_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.date_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.dragonfruit_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.durian_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.fig_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.grapefruit_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.lime_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.mango_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.olive_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.papaya_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.paperbark_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pecan_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.peppercorn_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.persimmon_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pistachio_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pomegranate_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.starfruit_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.vanillabean_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.breadfruit_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.guava_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.jackfruit_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.lychee_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.passionfruit_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.rambutan_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.tamarind_sapling, RenderType.cutout());
+			//Cold Saplings
+		RenderTypeLookup.setRenderLayer(BlockRegistry.maple_sapling, RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.pinenut_sapling, RenderType.cutout());
+}
+}

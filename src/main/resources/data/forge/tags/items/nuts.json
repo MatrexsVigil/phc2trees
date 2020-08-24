@@ -1,0 +1,13 @@
+{
+		"replace": false,
+		"values": [
+			"#forge:nuts/almond",
+			"#forge:nuts/cashew",
+			"#forge:nuts/chestnut",
+			"#forge:nuts/hazelnut",
+			"#forge:nuts/pecan",
+			"#forge:nuts/pinenut",
+			"#forge:nuts/pistachio",
+			"#forge:nuts/walnut"
+	]
+}

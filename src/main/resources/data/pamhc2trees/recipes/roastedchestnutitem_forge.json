@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {"tag": "forge:crops/chestnut"},
+	"result": "pamhc2trees:roastedchestnutitem",
+	"experience": 0.35,
+	"cookingtime": 200
+
+}

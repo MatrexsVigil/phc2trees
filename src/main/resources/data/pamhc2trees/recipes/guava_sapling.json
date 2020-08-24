@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:guavaitem"
+	},
+	{
+		"item": "pamhc2trees:guavaitem"
+	},
+	{
+		"item": "pamhc2trees:guavaitem"
+	},
+	{
+		"item": "pamhc2trees:guavaitem"
+	},
+	{
+		"item": "pamhc2trees:guavaitem"
+	},
+	{
+		"item": "pamhc2trees:guavaitem"
+	},
+	{
+		"item": "pamhc2trees:guavaitem"
+	},
+	{
+		"item": "pamhc2trees:guavaitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:guava_sapling"
+	}
+
+}

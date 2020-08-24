@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:pomegranateitem"
+	},
+	{
+		"item": "pamhc2trees:pomegranateitem"
+	},
+	{
+		"item": "pamhc2trees:pomegranateitem"
+	},
+	{
+		"item": "pamhc2trees:pomegranateitem"
+	},
+	{
+		"item": "pamhc2trees:pomegranateitem"
+	},
+	{
+		"item": "pamhc2trees:pomegranateitem"
+	},
+	{
+		"item": "pamhc2trees:pomegranateitem"
+	},
+	{
+		"item": "pamhc2trees:pomegranateitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:pomegranate_sapling"
+	}
+
+}

@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:lycheeitem"
+	},
+	{
+		"item": "pamhc2trees:lycheeitem"
+	},
+	{
+		"item": "pamhc2trees:lycheeitem"
+	},
+	{
+		"item": "pamhc2trees:lycheeitem"
+	},
+	{
+		"item": "pamhc2trees:lycheeitem"
+	},
+	{
+		"item": "pamhc2trees:lycheeitem"
+	},
+	{
+		"item": "pamhc2trees:lycheeitem"
+	},
+	{
+		"item": "pamhc2trees:lycheeitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:lychee_sapling"
+	}
+
+}

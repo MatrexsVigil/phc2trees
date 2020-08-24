@@ -1,0 +1,36 @@
+{
+	"replace": false,
+	"values": [
+"#forge:fruits/avocado",
+"#forge:fruits/cherry",
+"#forge:fruits/gooseberry",
+"#forge:fruits/lemon",
+"#forge:fruits/orange",
+"#forge:fruits/peach",
+"#forge:fruits/pear",
+"#forge:fruits/plum",
+"#forge:fruits/pawpaw",
+"#forge:fruits/soursop",
+"#forge:fruits/apricot",
+"#forge:fruits/banana",
+"#forge:fruits/date",
+"#forge:fruits/dragonfruit",
+"#forge:fruits/durian",
+"#forge:fruits/fig",
+"#forge:fruits/grapefruit",
+"#forge:fruits/lime",
+"#forge:fruits/mango",
+"#forge:fruits/papaya",
+"#forge:fruits/persimmon",
+"#forge:fruits/pomegranate",
+"#forge:fruits/starfruit",
+"#forge:fruits/breadfruit",
+"#forge:fruits/guava",
+"#forge:fruits/jackfruit",
+"#forge:fruits/lychee",
+"#forge:fruits/passionfruit",
+"#forge:fruits/rambutan",
+"#forge:fruits/tamarind"
+
+	]
+}

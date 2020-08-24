@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:gooseberryitem"
+	},
+	{
+		"item": "pamhc2trees:gooseberryitem"
+	},
+	{
+		"item": "pamhc2trees:gooseberryitem"
+	},
+	{
+		"item": "pamhc2trees:gooseberryitem"
+	},
+	{
+		"item": "pamhc2trees:gooseberryitem"
+	},
+	{
+		"item": "pamhc2trees:gooseberryitem"
+	},
+	{
+		"item": "pamhc2trees:gooseberryitem"
+	},
+	{
+		"item": "pamhc2trees:gooseberryitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:gooseberry_sapling"
+	}
+
+}

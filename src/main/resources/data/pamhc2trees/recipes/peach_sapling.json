@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:peachitem"
+	},
+	{
+		"item": "pamhc2trees:peachitem"
+	},
+	{
+		"item": "pamhc2trees:peachitem"
+	},
+	{
+		"item": "pamhc2trees:peachitem"
+	},
+	{
+		"item": "pamhc2trees:peachitem"
+	},
+	{
+		"item": "pamhc2trees:peachitem"
+	},
+	{
+		"item": "pamhc2trees:peachitem"
+	},
+	{
+		"item": "pamhc2trees:peachitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:peach_sapling"
+	}
+
+}

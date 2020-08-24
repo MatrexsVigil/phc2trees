@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "pamhc2trees:block/paperbark_stage_0"
+    }
+}
+

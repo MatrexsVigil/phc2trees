@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "pamhc2trees:dateitem"
+	},
+	{
+		"item": "pamhc2trees:dateitem"
+	},
+	{
+		"item": "pamhc2trees:dateitem"
+	},
+	{
+		"item": "pamhc2trees:dateitem"
+	},
+	{
+		"item": "pamhc2trees:dateitem"
+	},
+	{
+		"item": "pamhc2trees:dateitem"
+	},
+	{
+		"item": "pamhc2trees:dateitem"
+	},
+	{
+		"item": "pamhc2trees:dateitem"
+	},
+	{
+		"tag": "minecraft:saplings"
+	}
+],
+
+	"result": {
+		"item": "pamhc2trees:date_sapling"
+	}
+
+}
