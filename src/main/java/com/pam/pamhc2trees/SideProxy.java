@@ -17,7 +17,9 @@ import com.pam.pamhc2trees.init.WorldGenRegistry;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -40,26 +42,20 @@ public class SideProxy {
 		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Block.class, BlockRegistry::registerAll);
 		
 		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Item.class, ItemRegistry::registerAll);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(WorldGenRegistry::registerAll);
+		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Feature.class, WorldGenRegistry::registerAll);
 		
 		Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml").toString());
 
 		MinecraftForge.EVENT_BUS.addListener(SideProxy::serverStarting);
+		MinecraftForge.EVENT_BUS.addListener(SideProxy::onBiomeLoad);
 	}
 
 	
 	private static void commonSetup(FMLCommonSetupEvent event) {
 		Pamhc2trees.LOGGER.debug("common setup");
 		EventSetup.setupEvents();
-		
 
-		TemperateFruitTreeWorldGenRegistry.register();
-		WarmFruitTreeWorldGenRegistry.register();
-		ColdFruitTreeWorldGenRegistry.register();
 		CompostRegistry.register();
-
-
-		
 	}
 
 	private static void enqueueIMC(final InterModEnqueueEvent event) {
@@ -69,6 +65,31 @@ public class SideProxy {
 	}
 
 	private static void serverStarting(FMLServerStartingEvent event) {
+	}
+
+	private static void onBiomeLoad(BiomeLoadingEvent event) {
+		TemperateFruitTreeWorldGenRegistry.register(event);
+		WarmFruitTreeWorldGenRegistry.register(event);
+		ColdFruitTreeWorldGenRegistry.register(event);
+
+		// Debug code for printing biome tree features.
+		/*final String features = event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).stream()
+				.map(s -> s.get())
+				.map(feat -> {
+					ConfiguredFeature<?, ?> ret = feat;
+
+					while (ret.config instanceof DecoratedFeatureConfig)
+						ret = ((DecoratedFeatureConfig) ret.config).feature.get();
+
+					return ret;
+				})
+				.filter(feat -> feat.feature.getRegistryName() != null && feat.feature.getRegistryName().getNamespace().equals("pamhc2trees"))
+				.map(feat -> String.valueOf(feat.feature.getRegistryName()))
+				.sorted()
+				.collect(Collectors.joining("\n"));
+
+		if (!features.isEmpty())
+			Pamhc2trees.LOGGER.info("Biome features for {}:\n{}", event.getName(), features);*/
 	}
 
 	static class Client extends SideProxy {

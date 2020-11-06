@@ -69,6 +69,16 @@ dependencies {
 processResources {
   outputs.upToDateWhen { false } // thx to @tterrag for this hint
   doLast { file("${sourceSets.main.output.resourcesDir}/.gitversion").text = 'git log "-1" "--format=%h"'.execute().in.text.trim() }
+
+  from(sourceSets.main.resources.srcDirs) {
+    include 'META-INF/mods.toml'
+
+    expand 'version':project.version
+  }
+
+  from(sourceSets.main.resources.srcDirs) {
+    exclude 'META-INF/mods.toml'
+  }
 }
  
 jar {
