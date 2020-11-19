@@ -3,7 +3,7 @@ package com.pam.pamhc2trees.worldgen;
 import java.util.Random;
 import java.util.function.Function;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import com.pam.pamhc2trees.config.ChanceConfig;
 import com.pam.pamhc2trees.config.DimensionConfig;
 import com.pam.pamhc2trees.config.EnableConfig;
@@ -15,23 +15,23 @@ import net.minecraft.block.Blocks;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 public class TemperateFruitTreeFeature extends Feature<NoFeatureConfig> {
-	public TemperateFruitTreeFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> configFactory) {
+	public TemperateFruitTreeFeature(Codec<NoFeatureConfig> configFactory) {
 		super(configFactory);
 	}
 
 	@Override
-	public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random random,
+	public boolean generate(ISeedReader world, ChunkGenerator generator, Random random,
 			BlockPos pos, NoFeatureConfig config) {
 		if (random.nextInt(ChanceConfig.temperatefruittree_chance.get()) != 0
-			|| DimensionConfig.blacklist.get().contains(world.getDimension().getType().getRegistryName().toString())
-			|| (!DimensionConfig.whitelist.get().contains(world.getDimension().getType().getRegistryName().toString()) && DimensionConfig.whitelist.get().size()>0))
+			|| DimensionConfig.blacklist.get().contains(world.getWorld().getDimensionKey().getLocation().toString())
+			|| (!DimensionConfig.whitelist.get().contains(world.getWorld().getDimensionKey().getLocation().toString()) && DimensionConfig.whitelist.get().size()>0))
 			return false;
 
 		if (isValidGround(world.getBlockState(pos.down()), world, pos)

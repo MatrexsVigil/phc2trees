@@ -46,15 +46,6 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	      return state.get(this.getAgeProperty()) >= this.getMaxAge();
 	   }
 	
-	@Override
-	public float getBlockHardness(BlockState blockState, IBlockReader worldIn, BlockPos pos) {
-		if(blockState.get(AGE) >= 7) {
-			return 2f;
-		} else
-
-		return 5f;
-	   }
-	
 	@SuppressWarnings("deprecation")
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
 		if (!state.isValidPosition(worldIn, pos)) {

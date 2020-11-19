@@ -132,105 +132,105 @@ public class BlockRegistry {
 		if (!event.getName().equals(ForgeRegistries.BLOCKS.getRegistryName()))
 			return;
 		//Temperate Fruits
-		pamapple = register("pamapple", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamapple = register("pamapple", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "apple"));
-		pamavocado = register("pamavocado", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamavocado = register("pamavocado", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "avocado"));
-		pamcandlenut = register("pamcandlenut", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamcandlenut = register("pamcandlenut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "candlenut"));
-		pamcherry = register("pamcherry", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamcherry = register("pamcherry", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "cherry"));
-		pamchestnut = register("pamchestnut", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamchestnut = register("pamchestnut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "chestnut"));
-		pamgooseberry = register("pamgooseberry", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamgooseberry = register("pamgooseberry", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "gooseberry"));
-		pamlemon = register("pamlemon", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamlemon = register("pamlemon", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "lemon"));
-		pamnutmeg = register("pamnutmeg", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamnutmeg = register("pamnutmeg", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "nutmeg"));
-		pamorange = register("pamorange", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamorange = register("pamorange", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "orange"));
-		pampeach = register("pampeach", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pampeach = register("pampeach", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "peach"));
-		pampear = register("pampear", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pampear = register("pampear", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pear"));
-		pamplum = register("pamplum", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamplum = register("pamplum", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "plum"));
-		pamwalnut = register("pamwalnut", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamwalnut = register("pamwalnut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "walnut"));
-		pamspiderweb = register("pamspiderweb", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamspiderweb = register("pamspiderweb", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "spiderweb"));
-		pamhazelnut = register("pamhazelnut", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamhazelnut = register("pamhazelnut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "hazelnut"));
-		pampawpaw = register("pampawpaw", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pampawpaw = register("pampawpaw", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pawpaw"));
-		pamsoursop = register("pamsoursop", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamsoursop = register("pamsoursop", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "soursop"));
 		//Warm Fruits
-		pamalmond = register("pamalmond", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamalmond = register("pamalmond", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "almond"));
-		pamapricot = register("pamapricot", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamapricot = register("pamapricot", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "apricot"));
-		pambanana = register("pambanana", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pambanana = register("pambanana", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "banana"));
-		pamcashew = register("pamcashew", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamcashew = register("pamcashew", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "cashew"));
-		pamcinnamon = register("pamcinnamon", new BlockPamLogFruit(Block.Properties.create(Material.PLANTS)
+		pamcinnamon = register("pamcinnamon", new BlockPamLogFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.tickRandomly().sound(SoundType.CROP), "cinnamon"));
-		pamcoconut = register("pamcoconut", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamcoconut = register("pamcoconut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "coconut"));
-		pamdate = register("pamdate", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamdate = register("pamdate", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "date"));
-		pamdragonfruit = register("pamdragonfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamdragonfruit = register("pamdragonfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "dragonfruit"));
-		pamdurian = register("pamdurian", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamdurian = register("pamdurian", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "durian"));
-		pamfig = register("pamfig", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamfig = register("pamfig", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "fig"));
-		pamgrapefruit = register("pamgrapefruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamgrapefruit = register("pamgrapefruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "grapefruit"));
-		pamlime = register("pamlime", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamlime = register("pamlime", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "lime"));
-		pammango = register("pammango", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pammango = register("pammango", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "mango"));
-		pamolive = register("pamolive", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamolive = register("pamolive", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "olive"));
-		pampapaya = register("pampapaya", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pampapaya = register("pampapaya", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "papaya"));
-		pampaperbark = register("pampaperbark", new BlockPamLogFruit(Block.Properties.create(Material.PLANTS)
+		pampaperbark = register("pampaperbark", new BlockPamLogFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.tickRandomly().sound(SoundType.CROP), "paperbark"));
-		pampecan = register("pampecan", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pampecan = register("pampecan", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pecan"));
-		pampeppercorn = register("pampeppercorn", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pampeppercorn = register("pampeppercorn", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "peppercorn"));
-		pampersimmon = register("pampersimmon", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pampersimmon = register("pampersimmon", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "persimmon"));
-		pampistachio = register("pampistachio", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pampistachio = register("pampistachio", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pistachio"));
-		pampomegranate = register("pampomegranate", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pampomegranate = register("pampomegranate", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pomegranate"));
-		pamstarfruit = register("pamstarfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamstarfruit = register("pamstarfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "starfruit"));
-		pamvanillabean = register("pamvanillabean", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamvanillabean = register("pamvanillabean", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "vanillabean"));
-		pambreadfruit = register("pambreadfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pambreadfruit = register("pambreadfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "breadfruit"));
-		pamguava = register("pamguava", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamguava = register("pamguava", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "guava"));
-		pamjackfruit = register("pamjackfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamjackfruit = register("pamjackfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "jackfruit"));
-		pamlychee = register("pamlychee", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamlychee = register("pamlychee", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "lychee"));
-		pampassionfruit = register("pampassionfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pampassionfruit = register("pampassionfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "passionfruit"));
-		pamrambutan = register("pamrambutan", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamrambutan = register("pamrambutan", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "rambutan"));
-		pamtamarind = register("pamtamarind", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pamtamarind = register("pamtamarind", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "tamarind"));
 		//Cold Fruits
-		pammaple = register("pammaple", new BlockPamLogFruit(Block.Properties.create(Material.PLANTS)
+		pammaple = register("pammaple", new BlockPamLogFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.tickRandomly().sound(SoundType.CROP), "maple"));
-		pampinenut = register("pampinenut", new BlockPamFruit(Block.Properties.create(Material.PLANTS)
+		pampinenut = register("pampinenut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pinenut"));
 		
 		//Temperate Saplings
