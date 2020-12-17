@@ -2,6 +2,8 @@ package com.pam.pamhc2trees.init;
 
 import java.util.Set;
 
+import com.pam.pamhc2trees.config.EnableConfig;
+
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.GenerationStage;
@@ -17,634 +19,454 @@ public class WarmFruitTreeWorldGenRegistry {
 	public static void register(BiomeLoadingEvent evt) {
 		Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, evt.getName()));
 		//almond
-		if (WorldGenRegistry.almond_worldgen != null) {
+		if (EnableConfig.almond_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.almond_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_almond_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.almond_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_almond_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.almond_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_almond_worldgen);
 			}
 		}
 		//apricot
-		if (WorldGenRegistry.apricot_worldgen != null) {
+		if (EnableConfig.apricot_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.apricot_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_apricot_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.apricot_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_apricot_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.apricot_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_apricot_worldgen);
 			}
 		}
 
 		//banana
-		if (WorldGenRegistry.banana_worldgen != null) {
+		if (EnableConfig.banana_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.banana_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_banana_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.banana_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_banana_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.banana_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_banana_worldgen);
 			}
 		}
 		//cashew
-		if (WorldGenRegistry.cashew_worldgen != null) {
+		if (EnableConfig.cashew_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.cashew_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_cashew_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.cashew_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_cashew_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.cashew_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_cashew_worldgen);
 			}
 		}
 		//cinnamon
-		if (WorldGenRegistry.cinnamon_worldgen != null) {
+		if (EnableConfig.cinnamon_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.cinnamon_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_cinnamon_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.cinnamon_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_cinnamon_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.cinnamon_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_cinnamon_worldgen);
 			}
 		}
 		//coconut
-		if (WorldGenRegistry.coconut_worldgen != null) {
+		if (EnableConfig.coconut_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.coconut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_coconut_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.coconut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_coconut_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.coconut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_coconut_worldgen);
 			}
 		}
 		//date
-		if (WorldGenRegistry.date_worldgen != null) {
+		if (EnableConfig.date_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.date_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_date_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.date_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_date_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.date_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_date_worldgen);
 			}
 		}
 		//dragonfruit
-		if (WorldGenRegistry.dragonfruit_worldgen != null) {
+		if (EnableConfig.dragonfruit_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.dragonfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_dragonfruit_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.dragonfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_dragonfruit_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.dragonfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_dragonfruit_worldgen);
 			}
 		}
 		//durian
-		if (WorldGenRegistry.durian_worldgen != null) {
+		if (EnableConfig.durian_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.durian_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_durian_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.durian_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_durian_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.durian_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_durian_worldgen);
 			}
 		}
 		//fig
-		if (WorldGenRegistry.fig_worldgen != null) {
+		if (EnableConfig.fig_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.fig_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_fig_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.fig_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_fig_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.fig_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_fig_worldgen);
 			}
 		}
 		//grapefruit
-		if (WorldGenRegistry.grapefruit_worldgen != null) {
+		if (EnableConfig.grapefruit_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.grapefruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_grapefruit_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.grapefruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_grapefruit_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.grapefruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_grapefruit_worldgen);
 			}
 		}
 		//lime
-		if (WorldGenRegistry.lime_worldgen != null) {
+		if (EnableConfig.lime_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.lime_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_lime_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.lime_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_lime_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.lime_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_lime_worldgen);
 			}
 		}
 		//mango
-		if (WorldGenRegistry.mango_worldgen != null) {
+		if (EnableConfig.mango_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.mango_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_mango_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.mango_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_mango_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.mango_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_mango_worldgen);
 			}
 		}
 		//olive
-		if (WorldGenRegistry.olive_worldgen != null) {
+		if (EnableConfig.olive_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.olive_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_olive_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.olive_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_olive_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.olive_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_olive_worldgen);
 			}
 		}
 		//papaya
-		if (WorldGenRegistry.papaya_worldgen != null) {
+		if (EnableConfig.papaya_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.papaya_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_papaya_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.papaya_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_papaya_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.papaya_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_papaya_worldgen);
 			}
 		}
 		//paperbark
-		if (WorldGenRegistry.paperbark_worldgen != null) {
+		if (EnableConfig.paperbark_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.paperbark_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_paperbark_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.paperbark_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_paperbark_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.paperbark_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_paperbark_worldgen);
 			}
 		}
 		//pecan
-		if (WorldGenRegistry.pecan_worldgen != null) {
+		if (EnableConfig.pecan_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.pecan_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_pecan_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.pecan_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_pecan_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.pecan_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_pecan_worldgen);
 			}
 		}
 		//peppercorn
-		if (WorldGenRegistry.peppercorn_worldgen != null) {
+		if (EnableConfig.peppercorn_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.peppercorn_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_peppercorn_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.peppercorn_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_peppercorn_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.peppercorn_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_peppercorn_worldgen);
 			}
 		}
 		//persimmon
-		if (WorldGenRegistry.persimmon_worldgen != null) {
+		if (EnableConfig.persimmon_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.persimmon_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_persimmon_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.persimmon_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_persimmon_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.persimmon_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_persimmon_worldgen);
 			}
 		}
 		//pistachio
-		if (WorldGenRegistry.pistachio_worldgen != null) {
+		if (EnableConfig.pistachio_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.pistachio_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_pistachio_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.pistachio_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_pistachio_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.pistachio_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_pistachio_worldgen);
 			}
 		}
 		//pomegranate
-		if (WorldGenRegistry.pomegranate_worldgen != null) {
+		if (EnableConfig.pomegranate_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.pomegranate_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_pomegranate_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.pomegranate_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_pomegranate_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.pomegranate_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_pomegranate_worldgen);
 			}
 		}
 		//starfruit
-		if (WorldGenRegistry.starfruit_worldgen != null) {
+		if (EnableConfig.starfruit_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.starfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_starfruit_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.starfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_starfruit_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.starfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_starfruit_worldgen);
 			}
 		}
 		//vanillabean
-		if (WorldGenRegistry.vanillabean_worldgen != null) {
+		if (EnableConfig.vanillabean_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.vanillabean_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_vanillabean_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.vanillabean_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_vanillabean_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.vanillabean_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_vanillabean_worldgen);
 			}
 		}
 		//breadfruit
-		if (WorldGenRegistry.breadfruit_worldgen != null) {
+		if (EnableConfig.breadfruit_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.breadfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_breadfruit_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.breadfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_breadfruit_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.breadfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_breadfruit_worldgen);
 			}
 		}
 		//guava
-		if (WorldGenRegistry.guava_worldgen != null) {
+		if (EnableConfig.guava_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.guava_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_guava_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.guava_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_guava_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.guava_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_guava_worldgen);
 			}
 		}
 		//jackfruit
-		if (WorldGenRegistry.jackfruit_worldgen != null) {
+		if (EnableConfig.jackfruit_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.jackfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_jackfruit_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.jackfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_jackfruit_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.jackfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_jackfruit_worldgen);
 			}
 		}
 		//lychee
-		if (WorldGenRegistry.lychee_worldgen != null) {
+		if (EnableConfig.lychee_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.lychee_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_lychee_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.lychee_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_lychee_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.lychee_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_lychee_worldgen);
 			}
 		}
 		//passionfruit
-		if (WorldGenRegistry.passionfruit_worldgen != null) {
+		if (EnableConfig.passionfruit_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.passionfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_passionfruit_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.passionfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_passionfruit_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.passionfruit_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_passionfruit_worldgen);
 			}
 		}
 		//rambutan
-		if (WorldGenRegistry.rambutan_worldgen != null) {
+		if (EnableConfig.rambutan_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.rambutan_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_rambutan_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.rambutan_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_rambutan_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.rambutan_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_rambutan_worldgen);
 			}
 		}
 		//tamarind
-		if (WorldGenRegistry.tamarind_worldgen != null) {
+		if (EnableConfig.tamarind_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.tamarind_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_tamarind_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.OCEAN)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.tamarind_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_tamarind_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SWAMP)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.tamarind_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_tamarind_worldgen);
 			}
 		}
 

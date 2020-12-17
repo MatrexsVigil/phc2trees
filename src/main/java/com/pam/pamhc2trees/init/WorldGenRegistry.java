@@ -9,8 +9,16 @@ import com.pam.pamhc2trees.worldgen.WarmFruitTreeFeature;
 import com.pam.pamhc2trees.worldgen.WarmLogFruitTreeFeature;
 
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -72,114 +80,182 @@ public class WorldGenRegistry {
 	public static Feature<NoFeatureConfig> maple_worldgen;
 	public static Feature<NoFeatureConfig> pinenut_worldgen;
 
+	//Temperate Fruits
+	public static ConfiguredFeature<?,?> configured_apple_worldgen;
+	public static ConfiguredFeature<?,?> configured_avocado_worldgen;
+	public static ConfiguredFeature<?,?> configured_candlenut_worldgen;
+	public static ConfiguredFeature<?,?> configured_cherry_worldgen;
+	public static ConfiguredFeature<?,?> configured_chestnut_worldgen;
+	public static ConfiguredFeature<?,?> configured_gooseberry_worldgen;
+	public static ConfiguredFeature<?,?> configured_lemon_worldgen;
+	public static ConfiguredFeature<?,?> configured_nutmeg_worldgen;
+	public static ConfiguredFeature<?,?> configured_orange_worldgen;
+	public static ConfiguredFeature<?,?> configured_peach_worldgen;
+	public static ConfiguredFeature<?,?> configured_pear_worldgen;
+	public static ConfiguredFeature<?,?> configured_plum_worldgen;
+	public static ConfiguredFeature<?,?> configured_walnut_worldgen;
+	public static ConfiguredFeature<?,?> configured_spiderweb_worldgen;
+	public static ConfiguredFeature<?,?> configured_hazelnut_worldgen;
+	public static ConfiguredFeature<?,?> configured_pawpaw_worldgen;
+	public static ConfiguredFeature<?,?> configured_soursop_worldgen;
+	//Warm Fruits
+	public static ConfiguredFeature<?,?> configured_almond_worldgen;
+	public static ConfiguredFeature<?,?> configured_apricot_worldgen;
+	public static ConfiguredFeature<?,?> configured_banana_worldgen;
+	public static ConfiguredFeature<?,?> configured_cashew_worldgen;
+	public static ConfiguredFeature<?,?> configured_cinnamon_worldgen;
+	public static ConfiguredFeature<?,?> configured_coconut_worldgen;
+	public static ConfiguredFeature<?,?> configured_date_worldgen;
+	public static ConfiguredFeature<?,?> configured_dragonfruit_worldgen;
+	public static ConfiguredFeature<?,?> configured_durian_worldgen;
+	public static ConfiguredFeature<?,?> configured_fig_worldgen;
+	public static ConfiguredFeature<?,?> configured_grapefruit_worldgen;
+	public static ConfiguredFeature<?,?> configured_lime_worldgen;
+	public static ConfiguredFeature<?,?> configured_mango_worldgen;
+	public static ConfiguredFeature<?,?> configured_olive_worldgen;
+	public static ConfiguredFeature<?,?> configured_papaya_worldgen;
+	public static ConfiguredFeature<?,?> configured_paperbark_worldgen;
+	public static ConfiguredFeature<?,?> configured_pecan_worldgen;
+	public static ConfiguredFeature<?,?> configured_peppercorn_worldgen;
+	public static ConfiguredFeature<?,?> configured_persimmon_worldgen;
+	public static ConfiguredFeature<?,?> configured_pistachio_worldgen;
+	public static ConfiguredFeature<?,?> configured_pomegranate_worldgen;
+	public static ConfiguredFeature<?,?> configured_starfruit_worldgen;
+	public static ConfiguredFeature<?,?> configured_vanillabean_worldgen;
+	public static ConfiguredFeature<?,?> configured_breadfruit_worldgen;
+	public static ConfiguredFeature<?,?> configured_guava_worldgen;
+	public static ConfiguredFeature<?,?> configured_jackfruit_worldgen;
+	public static ConfiguredFeature<?,?> configured_lychee_worldgen;
+	public static ConfiguredFeature<?,?> configured_passionfruit_worldgen;
+	public static ConfiguredFeature<?,?> configured_rambutan_worldgen;
+	public static ConfiguredFeature<?,?> configured_tamarind_worldgen;
+	//Cold Fruits
+	public static ConfiguredFeature<?,?> configured_maple_worldgen;
+	public static ConfiguredFeature<?,?> configured_pinenut_worldgen;
+
 	public static void registerAll(RegistryEvent.Register<Feature<?>> event) {
 		if (!event.getName().equals(ForgeRegistries.FEATURES.getRegistryName()))
 			return;
 		IForgeRegistry<Feature<?>> r = event.getRegistry();
 
 		//Temperate Fruits
-		if (EnableConfig.apple_worldgen.get() == true)
-			apple_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "apple_worldgen");
-		if (EnableConfig.avocado_worldgen.get() == true)
-			avocado_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "avocado_worldgen");
-		if (EnableConfig.candlenut_worldgen.get() == true)
-			candlenut_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "candlenut_worldgen");
-		if (EnableConfig.cherry_worldgen.get() == true)
-			cherry_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "cherry_worldgen");
-		if (EnableConfig.chestnut_worldgen.get() == true)
-			chestnut_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "chestnut_worldgen");
-		if (EnableConfig.gooseberry_worldgen.get() == true)
-			gooseberry_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "gooseberry_worldgen");
-		if (EnableConfig.lemon_worldgen.get() == true)
-			lemon_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "lemon_worldgen");
-		if (EnableConfig.nutmeg_worldgen.get() == true)
-			nutmeg_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "nutmeg_worldgen");
-		if (EnableConfig.orange_worldgen.get() == true)
-			orange_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "orange_worldgen");
-		if (EnableConfig.peach_worldgen.get() == true)
-			peach_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "peach_worldgen");
-		if (EnableConfig.pear_worldgen.get() == true)
-			pear_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "pear_worldgen");
-		if (EnableConfig.plum_worldgen.get() == true)
-			plum_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "plum_worldgen");
-		if (EnableConfig.walnut_worldgen.get() == true)
-			walnut_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "walnut_worldgen");
-		if (EnableConfig.spiderweb_worldgen.get() == true)
-			spiderweb_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "spiderweb_worldgen");
-		if (EnableConfig.hazelnut_worldgen.get() == true)
-			hazelnut_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "hazelnut_worldgen");
-		if (EnableConfig.pawpaw_worldgen.get() == true)
-			pawpaw_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "pawpaw_worldgen");
-		if (EnableConfig.soursop_worldgen.get() == true)
-			soursop_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "soursop_worldgen");
+		apple_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "apple_worldgen");
+		avocado_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "avocado_worldgen");
+		candlenut_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "candlenut_worldgen");
+		cherry_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "cherry_worldgen");
+		chestnut_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "chestnut_worldgen");
+		gooseberry_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "gooseberry_worldgen");
+		lemon_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "lemon_worldgen");
+		nutmeg_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "nutmeg_worldgen");
+		orange_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "orange_worldgen");
+		peach_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "peach_worldgen");
+		pear_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "pear_worldgen");
+		plum_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "plum_worldgen");
+		walnut_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "walnut_worldgen");
+		spiderweb_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "spiderweb_worldgen");
+		hazelnut_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "hazelnut_worldgen");
+		pawpaw_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "pawpaw_worldgen");
+		soursop_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.field_236558_a_), "soursop_worldgen");
 		
 		//Warm Fruits
-		if (EnableConfig.almond_worldgen.get() == true)
-			almond_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "almond_worldgen");
-		if (EnableConfig.apricot_worldgen.get() == true)
-			apricot_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "apricot_worldgen");
-		if (EnableConfig.banana_worldgen.get() == true)
-			banana_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "banana_worldgen");
-		if (EnableConfig.cashew_worldgen.get() == true)
-			cashew_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "cashew_worldgen");
-		if (EnableConfig.cinnamon_worldgen.get() == true)
-			cinnamon_worldgen = register(r, new WarmLogFruitTreeFeature(NoFeatureConfig.field_236558_a_), "cinnamon_worldgen");
-		if (EnableConfig.coconut_worldgen.get() == true)
-			coconut_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "coconut_worldgen");
-		if (EnableConfig.date_worldgen.get() == true)
-			date_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "date_worldgen");
-		if (EnableConfig.dragonfruit_worldgen.get() == true)
-			dragonfruit_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "dragonfruit_worldgen");
-		if (EnableConfig.durian_worldgen.get() == true)
-			durian_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "durian_worldgen");
-		if (EnableConfig.fig_worldgen.get() == true)
-			fig_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "fig_worldgen");
-		if (EnableConfig.grapefruit_worldgen.get() == true)
-			grapefruit_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "grapefruit_worldgen");
-		if (EnableConfig.lime_worldgen.get() == true)
-			lime_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "lime_worldgen");
-		if (EnableConfig.mango_worldgen.get() == true)
-			mango_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "mango_worldgen");
-		if (EnableConfig.olive_worldgen.get() == true)
-			olive_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "olive_worldgen");
-		if (EnableConfig.papaya_worldgen.get() == true)
-			papaya_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "papaya_worldgen");
-		if (EnableConfig.paperbark_worldgen.get() == true)
-			paperbark_worldgen = register(r, new WarmLogFruitTreeFeature(NoFeatureConfig.field_236558_a_), "paperbark_worldgen");
-		if (EnableConfig.pecan_worldgen.get() == true)
-			pecan_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "pecan_worldgen");
-		if (EnableConfig.peppercorn_worldgen.get() == true)
-			peppercorn_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "peppercorn_worldgen");
-		if (EnableConfig.persimmon_worldgen.get() == true)
-			persimmon_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "persimmon_worldgen");
-		if (EnableConfig.pistachio_worldgen.get() == true)
-			pistachio_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "pistachio_worldgen");
-		if (EnableConfig.pomegranate_worldgen.get() == true)
-			pomegranate_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "pomegranate_worldgen");
-		if (EnableConfig.starfruit_worldgen.get() == true)
-			starfruit_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "starfruit_worldgen");
-		if (EnableConfig.vanillabean_worldgen.get() == true)
-			vanillabean_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "vanillabean_worldgen");
-		if (EnableConfig.breadfruit_worldgen.get() == true)
-			breadfruit_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "breadfruit_worldgen");
-		if (EnableConfig.guava_worldgen.get() == true)
-			guava_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "guava_worldgen");
-		if (EnableConfig.jackfruit_worldgen.get() == true)
-			jackfruit_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "jackfruit_worldgen");
-		if (EnableConfig.lychee_worldgen.get() == true)
-			lychee_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "lychee_worldgen");
-		if (EnableConfig.passionfruit_worldgen.get() == true)
-			passionfruit_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "passionfruit_worldgen");
-		if (EnableConfig.rambutan_worldgen.get() == true)
-			rambutan_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "rambutan_worldgen");
-		if (EnableConfig.tamarind_worldgen.get() == true)
-			tamarind_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "tamarind_worldgen");
+		almond_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "almond_worldgen");
+		apricot_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "apricot_worldgen");
+		banana_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "banana_worldgen");
+		cashew_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "cashew_worldgen");
+		cinnamon_worldgen = register(r, new WarmLogFruitTreeFeature(NoFeatureConfig.field_236558_a_), "cinnamon_worldgen");
+		coconut_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "coconut_worldgen");
+		date_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "date_worldgen");
+		dragonfruit_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "dragonfruit_worldgen");
+		durian_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "durian_worldgen");
+		fig_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "fig_worldgen");
+		grapefruit_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "grapefruit_worldgen");
+		lime_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "lime_worldgen");
+		mango_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "mango_worldgen");
+		olive_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "olive_worldgen");
+		papaya_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "papaya_worldgen");
+		paperbark_worldgen = register(r, new WarmLogFruitTreeFeature(NoFeatureConfig.field_236558_a_), "paperbark_worldgen");
+		pecan_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "pecan_worldgen");
+		peppercorn_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "peppercorn_worldgen");
+		persimmon_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "persimmon_worldgen");
+		pistachio_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "pistachio_worldgen");
+		pomegranate_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "pomegranate_worldgen");
+		starfruit_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "starfruit_worldgen");
+		vanillabean_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "vanillabean_worldgen");
+		breadfruit_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "breadfruit_worldgen");
+		guava_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "guava_worldgen");
+		jackfruit_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "jackfruit_worldgen");
+		lychee_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "lychee_worldgen");
+		passionfruit_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "passionfruit_worldgen");
+		rambutan_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "rambutan_worldgen");
+		tamarind_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.field_236558_a_), "tamarind_worldgen");
 		
 		//Cold Fruits
-		if (EnableConfig.maple_worldgen.get() == true)
-			maple_worldgen = register(r, new ColdLogFruitTreeFeature(NoFeatureConfig.field_236558_a_), "maple_worldgen");
-		if (EnableConfig.pinenut_worldgen.get() == true)
-			pinenut_worldgen = register(r, new ColdFruitTreeFeature(NoFeatureConfig.field_236558_a_), "pinenut_worldgen");
+		maple_worldgen = register(r, new ColdLogFruitTreeFeature(NoFeatureConfig.field_236558_a_), "maple_worldgen");
+		pinenut_worldgen = register(r, new ColdFruitTreeFeature(NoFeatureConfig.field_236558_a_), "pinenut_worldgen");
+	}
+
+	public static void registerConfiguredFeatures() {
+		configured_apple_worldgen = configure(apple_worldgen);
+		configured_avocado_worldgen = configure(avocado_worldgen);
+		configured_candlenut_worldgen = configure(candlenut_worldgen);
+		configured_cherry_worldgen = configure(cherry_worldgen);
+		configured_chestnut_worldgen = configure(chestnut_worldgen);
+		configured_gooseberry_worldgen = configure(gooseberry_worldgen);
+		configured_lemon_worldgen = configure(lemon_worldgen);
+		configured_nutmeg_worldgen = configure(nutmeg_worldgen);
+		configured_orange_worldgen = configure(orange_worldgen);
+		configured_peach_worldgen = configure(peach_worldgen);
+		configured_pear_worldgen = configure(pear_worldgen);
+		configured_plum_worldgen = configure(plum_worldgen);
+		configured_walnut_worldgen = configure(walnut_worldgen);
+		configured_spiderweb_worldgen = configure(spiderweb_worldgen);
+		configured_hazelnut_worldgen = configure(hazelnut_worldgen);
+		configured_pawpaw_worldgen = configure(pawpaw_worldgen);
+		configured_soursop_worldgen = configure(soursop_worldgen);
+
+		configured_almond_worldgen = configure(almond_worldgen);
+		configured_apricot_worldgen = configure(apricot_worldgen);
+		configured_banana_worldgen = configure(banana_worldgen);
+		configured_cashew_worldgen = configure(cashew_worldgen);
+		configured_cinnamon_worldgen = configure(cinnamon_worldgen);
+		configured_coconut_worldgen = configure(coconut_worldgen);
+		configured_date_worldgen = configure(date_worldgen);
+		configured_dragonfruit_worldgen = configure(dragonfruit_worldgen);
+		configured_durian_worldgen = configure(durian_worldgen);
+		configured_fig_worldgen = configure(fig_worldgen);
+		configured_grapefruit_worldgen = configure(grapefruit_worldgen);
+		configured_lime_worldgen = configure(lime_worldgen);
+		configured_mango_worldgen = configure(mango_worldgen);
+		configured_olive_worldgen = configure(olive_worldgen);
+		configured_papaya_worldgen = configure(papaya_worldgen);
+		configured_paperbark_worldgen = configure(paperbark_worldgen);
+		configured_pecan_worldgen = configure(pecan_worldgen);
+		configured_peppercorn_worldgen = configure(peppercorn_worldgen);
+		configured_persimmon_worldgen = configure(persimmon_worldgen);
+		configured_pistachio_worldgen = configure(pistachio_worldgen);
+		configured_pomegranate_worldgen = configure(pomegranate_worldgen);
+		configured_starfruit_worldgen = configure(starfruit_worldgen);
+		configured_vanillabean_worldgen = configure(vanillabean_worldgen);
+		configured_breadfruit_worldgen = configure(breadfruit_worldgen);
+		configured_guava_worldgen = configure(guava_worldgen);
+		configured_jackfruit_worldgen = configure(jackfruit_worldgen);
+		configured_lychee_worldgen = configure(lychee_worldgen);
+		configured_passionfruit_worldgen = configure(passionfruit_worldgen);
+		configured_rambutan_worldgen = configure(rambutan_worldgen);
+		configured_tamarind_worldgen = configure(tamarind_worldgen);
+
+		configured_maple_worldgen = configure(maple_worldgen);
+		configured_pinenut_worldgen = configure(pinenut_worldgen);
+	}
+
+	private static ConfiguredFeature<?,?> configure(Feature<NoFeatureConfig> feature) {
+		final ConfiguredFeature<?,?> conf = feature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+		.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
+		.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT);
+
+		Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, feature.getRegistryName(), conf);
+
+		return conf;
 	}
 
 	private static <V extends R, R extends IForgeRegistryEntry<R>> V register(IForgeRegistry<R> registry, V value,

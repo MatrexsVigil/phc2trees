@@ -2,6 +2,8 @@ package com.pam.pamhc2trees.init;
 
 import java.util.Set;
 
+import com.pam.pamhc2trees.config.EnableConfig;
+
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -19,360 +21,258 @@ public class TemperateFruitTreeWorldGenRegistry {
 		Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, evt.getName()));
 		if ((evt.getClimate().temperature >= 1F || evt.getClimate().temperature < 0.2F) && !types.contains(BiomeDictionary.Type.SPOOKY)) return;
 		//apple
-		if (WorldGenRegistry.apple_worldgen != null) {
+		if (EnableConfig.apple_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.apple_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_apple_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.apple_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_apple_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.apple_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_apple_worldgen);
 			}
 		}
 		//avocado
-		if (WorldGenRegistry.avocado_worldgen != null) {
+		if (EnableConfig.avocado_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.avocado_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_avocado_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.avocado_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_avocado_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.avocado_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_avocado_worldgen);
 			}
 		}
 		//candlenut
-		if (WorldGenRegistry.candlenut_worldgen != null) {
+		if (EnableConfig.candlenut_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.candlenut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_candlenut_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.candlenut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_candlenut_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.candlenut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_candlenut_worldgen);
 			}
 		}
 		//cherry
-		if (WorldGenRegistry.cherry_worldgen != null) {
+		if (EnableConfig.cherry_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.cherry_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_cherry_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.cherry_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_cherry_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.cherry_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_cherry_worldgen);
 			}
 		}
 		//chestnut
-		if (WorldGenRegistry.chestnut_worldgen != null) {
+		if (EnableConfig.chestnut_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.chestnut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_chestnut_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.chestnut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_chestnut_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.chestnut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_chestnut_worldgen);
 			}
 		}
 		//gooseberry
-		if (WorldGenRegistry.gooseberry_worldgen != null) {
+		if (EnableConfig.gooseberry_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.gooseberry_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_gooseberry_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.gooseberry_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_gooseberry_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.gooseberry_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_gooseberry_worldgen);
 			}
 		}
 		//lemon
-		if (WorldGenRegistry.lemon_worldgen != null) {
+		if (EnableConfig.lemon_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.lemon_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_lemon_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.lemon_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_lemon_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.lemon_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_lemon_worldgen);
 			}
 		}
 		//nutmeg
-		if (WorldGenRegistry.nutmeg_worldgen != null) {
+		if (EnableConfig.nutmeg_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.nutmeg_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_nutmeg_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.nutmeg_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_nutmeg_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.nutmeg_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_nutmeg_worldgen);
 			}
 		}
 		//orange
-		if (WorldGenRegistry.orange_worldgen != null) {
+		if (EnableConfig.orange_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.orange_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_orange_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.orange_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_orange_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.orange_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_orange_worldgen);
 			}
 		}
 		//peach
-		if (WorldGenRegistry.peach_worldgen != null) {
+		if (EnableConfig.peach_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.peach_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_peach_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.peach_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_peach_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.peach_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_peach_worldgen);
 			}
 		}
 		//pear
-		if (WorldGenRegistry.pear_worldgen != null) {
+		if (EnableConfig.pear_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.pear_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_pear_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.pear_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_pear_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.pear_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_pear_worldgen);
 			}
 		}
 		//plum
-		if (WorldGenRegistry.plum_worldgen != null) {
+		if (EnableConfig.plum_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.plum_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_plum_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.plum_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_plum_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.plum_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_plum_worldgen);
 			}
 		}
 		//walnut
-		if (WorldGenRegistry.walnut_worldgen != null) {
+		if (EnableConfig.walnut_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.walnut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_walnut_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.walnut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_walnut_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.walnut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_walnut_worldgen);
 			}
 		}
 		//spiderweb
-		if (WorldGenRegistry.avocado_worldgen != null) {
+		if (EnableConfig.avocado_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.avocado_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_avocado_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.avocado_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_avocado_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.avocado_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_avocado_worldgen);
 			}
 		}
 		//hazelnut
-		if (WorldGenRegistry.hazelnut_worldgen != null) {
+		if (EnableConfig.hazelnut_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.hazelnut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_hazelnut_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.hazelnut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_hazelnut_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.hazelnut_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_hazelnut_worldgen);
 			}
 		}
 		//pawpaw
-		if (WorldGenRegistry.pawpaw_worldgen != null) {
+		if (EnableConfig.pawpaw_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.pawpaw_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_pawpaw_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.pawpaw_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_pawpaw_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.pawpaw_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_pawpaw_worldgen);
 			}
 		}
 		//soursop
-		if (WorldGenRegistry.soursop_worldgen != null) {
+		if (EnableConfig.soursop_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.soursop_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_soursop_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
 						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								WorldGenRegistry.soursop_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+								WorldGenRegistry.configured_soursop_worldgen);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.soursop_worldgen.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
+						WorldGenRegistry.configured_soursop_worldgen);
 			}
 		}
 		
