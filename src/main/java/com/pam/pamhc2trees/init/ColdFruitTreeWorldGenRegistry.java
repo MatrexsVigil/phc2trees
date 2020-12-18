@@ -2,8 +2,6 @@ package com.pam.pamhc2trees.init;
 
 import java.util.Set;
 
-import com.pam.pamhc2trees.config.EnableConfig;
-
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -16,45 +14,34 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public class ColdFruitTreeWorldGenRegistry {
-	
+
 	public static void register(BiomeLoadingEvent evt) {
 		Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, evt.getName()));
 		//maple
-		if (EnableConfig.maple_worldgen.get()) {
-			if (types.contains(BiomeDictionary.Type.CONIFEROUS)) {
-				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.configured_maple_worldgen);
-								
-			}
-			if (types.contains(BiomeDictionary.Type.COLD)) {
-				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.configured_maple_worldgen);
-			}
-			if (types.contains(BiomeDictionary.Type.HILLS) && types.contains(BiomeDictionary.Type.COLD)) {
-				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.configured_maple_worldgen);
-			}
+		if (types.contains(BiomeDictionary.Type.CONIFEROUS)) {
+			evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+					WorldGenRegistry.configured_maple_worldgen);
+		}
+		if (types.contains(BiomeDictionary.Type.COLD)) {
+			evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+					WorldGenRegistry.configured_maple_worldgen);
+		}
+		if (types.contains(BiomeDictionary.Type.HILLS) && types.contains(BiomeDictionary.Type.COLD)) {
+			evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+					WorldGenRegistry.configured_maple_worldgen);
 		}
 		//pinenut
-		if (EnableConfig.pinenut_worldgen.get()) {
-			if (types.contains(BiomeDictionary.Type.CONIFEROUS)) {
-				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.configured_pinenut_worldgen);
-								
-			}
-			if (types.contains(BiomeDictionary.Type.COLD)) {
-				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.configured_pinenut_worldgen);
-			}
-			if (types.contains(BiomeDictionary.Type.HILLS) && types.contains(BiomeDictionary.Type.COLD)) {
-				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.configured_pinenut_worldgen);
-			}
-		}		
-
-				
-				
-		
+		if (types.contains(BiomeDictionary.Type.CONIFEROUS)) {
+			evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+					WorldGenRegistry.configured_pinenut_worldgen);
+		}
+		if (types.contains(BiomeDictionary.Type.COLD)) {
+			evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+					WorldGenRegistry.configured_pinenut_worldgen);
+		}
+		if (types.contains(BiomeDictionary.Type.HILLS) && types.contains(BiomeDictionary.Type.COLD)) {
+			evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+					WorldGenRegistry.configured_pinenut_worldgen);
+		}
 	}
-
 }

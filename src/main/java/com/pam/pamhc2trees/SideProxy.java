@@ -44,7 +44,7 @@ public class SideProxy {
 		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Item.class, ItemRegistry::registerAll);
 		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Feature.class, WorldGenRegistry::registerAll);
 		
-		Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml").toString());
+		//Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml").toString());
 
 		//MinecraftForge.EVENT_BUS.addListener(SideProxy::serverStarting);
 		MinecraftForge.EVENT_BUS.addListener(SideProxy::onBiomeLoad);
