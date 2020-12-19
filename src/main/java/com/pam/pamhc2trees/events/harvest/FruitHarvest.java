@@ -51,14 +51,13 @@ public class FruitHarvest {
 			BlockState state = event.getWorld().getBlockState(event.getPos());
 			Block block = state.getBlock();
 
-			if (block instanceof BlockPamFruit || block instanceof BlockPamLogFruit) {
+			if (block instanceof BlockPamFruit) {
 				if (!event.getPlayer().getHeldItemMainhand().isEmpty())
 					event.setCanceled(true);
 
-				// Really need to move isMaxAge to an interface or something.
-				if ((block instanceof BlockPamFruit && ((BlockPamFruit) block).isMaxAge(state)) || (block instanceof BlockPamLogFruit && ((BlockPamLogFruit) block).isMaxAge(state))) {
+				if (((BlockPamFruit) block).isMaxAge(state)) {
 					if (!event.getWorld().isRemote) {
-						List<ItemStack> drops = Block.getDrops(event.getWorld().getBlockState(event.getPos()),
+						List<ItemStack> drops = Block.getDrops(state,
 								(ServerWorld) event.getWorld(), event.getPos(),
 								event.getWorld().getTileEntity(event.getPos()));
 

@@ -3,13 +3,9 @@ package com.pam.pamhc2trees.init;
 import javax.annotation.Nullable;
 
 import com.pam.pamhc2trees.Pamhc2trees;
-import com.pam.pamhc2trees.blocks.BlockPamColdLogSapling;
-import com.pam.pamhc2trees.blocks.BlockPamColdSapling;
 import com.pam.pamhc2trees.blocks.BlockPamFruit;
 import com.pam.pamhc2trees.blocks.BlockPamLogFruit;
-import com.pam.pamhc2trees.blocks.BlockPamTemperateSapling;
-import com.pam.pamhc2trees.blocks.BlockPamWarmLogSapling;
-import com.pam.pamhc2trees.blocks.BlockPamWarmSapling;
+import com.pam.pamhc2trees.blocks.BlockPamSapling;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -133,211 +129,209 @@ public class BlockRegistry {
 			return;
 		//Temperate Fruits
 		pamapple = register("pamapple", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "apple"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamavocado = register("pamavocado", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "avocado"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamcandlenut = register("pamcandlenut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "candlenut"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamcherry = register("pamcherry", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "cherry"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamchestnut = register("pamchestnut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "chestnut"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamgooseberry = register("pamgooseberry", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "gooseberry"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamlemon = register("pamlemon", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "lemon"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamnutmeg = register("pamnutmeg", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "nutmeg"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamorange = register("pamorange", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "orange"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pampeach = register("pampeach", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "peach"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pampear = register("pampear", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pear"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamplum = register("pamplum", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "plum"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamwalnut = register("pamwalnut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "walnut"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamspiderweb = register("pamspiderweb", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "spiderweb"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamhazelnut = register("pamhazelnut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "hazelnut"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pampawpaw = register("pampawpaw", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pawpaw"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamsoursop = register("pamsoursop", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "soursop"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		//Warm Fruits
 		pamalmond = register("pamalmond", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "almond"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamapricot = register("pamapricot", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "apricot"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pambanana = register("pambanana", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "banana"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamcashew = register("pamcashew", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "cashew"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamcinnamon = register("pamcinnamon", new BlockPamLogFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.tickRandomly().sound(SoundType.CROP), "cinnamon"));
+				.tickRandomly().sound(SoundType.CROP)));
 		pamcoconut = register("pamcoconut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "coconut"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamdate = register("pamdate", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "date"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamdragonfruit = register("pamdragonfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "dragonfruit"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamdurian = register("pamdurian", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "durian"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamfig = register("pamfig", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "fig"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamgrapefruit = register("pamgrapefruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "grapefruit"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamlime = register("pamlime", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "lime"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pammango = register("pammango", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "mango"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamolive = register("pamolive", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "olive"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pampapaya = register("pampapaya", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "papaya"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pampaperbark = register("pampaperbark", new BlockPamLogFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.tickRandomly().sound(SoundType.CROP), "paperbark"));
+				.tickRandomly().sound(SoundType.CROP)));
 		pampecan = register("pampecan", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pecan"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pampeppercorn = register("pampeppercorn", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "peppercorn"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pampersimmon = register("pampersimmon", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "persimmon"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pampistachio = register("pampistachio", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pistachio"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pampomegranate = register("pampomegranate", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pomegranate"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamstarfruit = register("pamstarfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "starfruit"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamvanillabean = register("pamvanillabean", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "vanillabean"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pambreadfruit = register("pambreadfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "breadfruit"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamguava = register("pamguava", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "guava"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamjackfruit = register("pamjackfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "jackfruit"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamlychee = register("pamlychee", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "lychee"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pampassionfruit = register("pampassionfruit", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "passionfruit"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamrambutan = register("pamrambutan", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "rambutan"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		pamtamarind = register("pamtamarind", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "tamarind"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		//Cold Fruits
 		pammaple = register("pammaple", new BlockPamLogFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.tickRandomly().sound(SoundType.CROP), "maple"));
+				.tickRandomly().sound(SoundType.CROP)));
 		pampinenut = register("pampinenut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
-				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pinenut"));
+				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
 		
 		//Temperate Saplings
-		apple_sapling = register("apple_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 1));
-		avocado_sapling = register("avocado_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 2));
-		candlenut_sapling = register("candlenut_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 3));
-		cherry_sapling = register("cherry_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 4));
-		chestnut_sapling = register("chestnut_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 5));
-		gooseberry_sapling = register("gooseberry_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 6));
-		lemon_sapling = register("lemon_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 7));
-		nutmeg_sapling = register("nutmeg_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 8));
-		orange_sapling = register("orange_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 9));
-		peach_sapling = register("peach_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 10));
-		pear_sapling = register("pear_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 11));
-		plum_sapling = register("plum_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 12));
-		walnut_sapling = register("walnut_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 13));
-		spiderweb_sapling = register("spiderweb_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 14));
-		hazelnut_sapling = register("hazelnut_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 15));
-		pawpaw_sapling = register("pawpaw_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 16));
-		soursop_sapling = register("soursop_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 17));
+		apple_sapling = register("apple_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.apple_worldgen));
+		avocado_sapling = register("avocado_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.avocado_worldgen));
+		candlenut_sapling = register("candlenut_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.candlenut_worldgen));
+		cherry_sapling = register("cherry_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.cherry_worldgen));
+		chestnut_sapling = register("chestnut_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.chestnut_worldgen));
+		gooseberry_sapling = register("gooseberry_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.gooseberry_worldgen));
+		lemon_sapling = register("lemon_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.lemon_worldgen));
+		nutmeg_sapling = register("nutmeg_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.nutmeg_worldgen));
+		orange_sapling = register("orange_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.orange_worldgen));
+		peach_sapling = register("peach_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.peach_worldgen));
+		pear_sapling = register("pear_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.pear_worldgen));
+		plum_sapling = register("plum_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.plum_worldgen));
+		walnut_sapling = register("walnut_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.walnut_worldgen));
+		spiderweb_sapling = register("spiderweb_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.spiderweb_worldgen));
+		hazelnut_sapling = register("hazelnut_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.hazelnut_worldgen));
+		pawpaw_sapling = register("pawpaw_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.pawpaw_worldgen));
+		soursop_sapling = register("soursop_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.soursop_worldgen));
 		//Warm Saplings
-		almond_sapling = register("almond_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 1));
-		apricot_sapling = register("apricot_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 2));
-		banana_sapling = register("banana_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 3));
-		cashew_sapling = register("cashew_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 4));
-		coconut_sapling = register("coconut_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 5));
-		date_sapling = register("date_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 6));
-		dragonfruit_sapling = register("dragonfruit_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 7));
-		durian_sapling = register("durian_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 8));
-		fig_sapling = register("fig_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 9));
-		grapefruit_sapling = register("grapefruit_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 10));
-		lime_sapling = register("lime_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 11));
-		mango_sapling = register("mango_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 12));
-		olive_sapling = register("olive_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 13));
-		papaya_sapling = register("papaya_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 14));
-		pecan_sapling = register("pecan_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 15));
-		peppercorn_sapling = register("peppercorn_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 16));
-		persimmon_sapling = register("persimmon_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 17));
-		pistachio_sapling = register("pistachio_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 18));
-		pomegranate_sapling = register("pomegranate_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 19));
-		starfruit_sapling = register("starfruit_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 20));
-		vanillabean_sapling = register("vanillabean_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 21));
-		breadfruit_sapling = register("breadfruit_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 22));
-		guava_sapling = register("guava_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 23));
-		jackfruit_sapling = register("jackfruit_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 24));
-		lychee_sapling = register("lychee_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 25));
-		passionfruit_sapling = register("passionfruit_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 26));
-		rambutan_sapling = register("rambutan_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 27));
-		tamarind_sapling = register("tamarind_sapling", new BlockPamWarmSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 28));
+		almond_sapling = register("almond_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.almond_worldgen));
+		apricot_sapling = register("apricot_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.apricot_worldgen));
+		banana_sapling = register("banana_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.banana_worldgen));
+		cashew_sapling = register("cashew_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.cashew_worldgen));
+		coconut_sapling = register("coconut_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.coconut_worldgen));
+		date_sapling = register("date_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.date_worldgen));
+		dragonfruit_sapling = register("dragonfruit_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.dragonfruit_worldgen));
+		durian_sapling = register("durian_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.durian_worldgen));
+		fig_sapling = register("fig_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.fig_worldgen));
+		grapefruit_sapling = register("grapefruit_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.grapefruit_worldgen));
+		lime_sapling = register("lime_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.lime_worldgen));
+		mango_sapling = register("mango_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.mango_worldgen));
+		olive_sapling = register("olive_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.olive_worldgen));
+		papaya_sapling = register("papaya_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.papaya_worldgen));
+		pecan_sapling = register("pecan_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.pecan_worldgen));
+		peppercorn_sapling = register("peppercorn_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.peppercorn_worldgen));
+		persimmon_sapling = register("persimmon_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.persimmon_worldgen));
+		pistachio_sapling = register("pistachio_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.pistachio_worldgen));
+		pomegranate_sapling = register("pomegranate_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.pomegranate_worldgen));
+		starfruit_sapling = register("starfruit_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.starfruit_worldgen));
+		vanillabean_sapling = register("vanillabean_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.vanillabean_worldgen));
+		breadfruit_sapling = register("breadfruit_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.breadfruit_worldgen));
+		guava_sapling = register("guava_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.guava_worldgen));
+		jackfruit_sapling = register("jackfruit_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.jackfruit_worldgen));
+		lychee_sapling = register("lychee_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.lychee_worldgen));
+		passionfruit_sapling = register("passionfruit_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.passionfruit_worldgen));
+		rambutan_sapling = register("rambutan_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.rambutan_worldgen));
+		tamarind_sapling = register("tamarind_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.tamarind_worldgen));
 		//Warm Log Saplings
-		cinnamon_sapling = register("cinnamon_sapling", new BlockPamWarmLogSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 1));
-		paperbark_sapling = register("paperbark_sapling", new BlockPamWarmLogSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 2));
+		cinnamon_sapling = register("cinnamon_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.cinnamon_worldgen));
+		paperbark_sapling = register("paperbark_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.paperbark_worldgen));
 		
 		//Cold Saplings
-		maple_sapling = register("maple_sapling", new BlockPamColdLogSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 1));
-		pinenut_sapling = register("pinenut_sapling", new BlockPamColdSapling(Block.Properties.create(Material.PLANTS)
-				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 1));
-		
-			
+		maple_sapling = register("maple_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.maple_worldgen));
+		pinenut_sapling = register("pinenut_sapling", new BlockPamSapling(Block.Properties.create(Material.PLANTS)
+				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), () -> WorldGenRegistry.pinenut_worldgen));
 	}
 	
 	
