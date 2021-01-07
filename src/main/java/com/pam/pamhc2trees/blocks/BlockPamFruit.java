@@ -56,7 +56,7 @@ public class BlockPamFruit extends Block implements IGrowable {
 		}
 		super.tick(state, worldIn, pos, random);
 		int i = state.get(AGE);
-		if (i < 7 && random.nextInt(5) == 0 && worldIn.getLightSubtracted(pos.up(), 0) >= 9)
+		if (i < 7 && random.nextInt(5) == 0 && (this instanceof BlockPamLogFruit || worldIn.getLightSubtracted(pos.up(), 0) >= 9))
 			worldIn.setBlockState(pos, state.with(AGE, i + 1), 2);
 	}
 

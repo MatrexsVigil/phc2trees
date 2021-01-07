@@ -52,10 +52,9 @@ public class FruitHarvest {
 			Block block = state.getBlock();
 
 			if (block instanceof BlockPamFruit) {
-				if (!event.getPlayer().getHeldItemMainhand().isEmpty())
+				if (((BlockPamFruit) block).isMaxAge(state)) {
 					event.setCanceled(true);
 
-				if (((BlockPamFruit) block).isMaxAge(state)) {
 					if (!event.getWorld().isRemote) {
 						List<ItemStack> drops = Block.getDrops(state,
 								(ServerWorld) event.getWorld(), event.getPos(),
@@ -74,9 +73,9 @@ public class FruitHarvest {
 					event.getWorld().playSound((PlayerEntity) null, event.getPos(), SoundEvents.BLOCK_CROP_BREAK,
 							SoundCategory.BLOCKS, 1.0F, 0.8F + event.getWorld().rand.nextFloat() * 0.4F);
 					event.getWorld().setBlockState(event.getPos(), block.getDefaultState(), 2);
+
+					event.getPlayer().swingArm(Hand.MAIN_HAND);
 				}
-				
-				event.getPlayer().swingArm(Hand.MAIN_HAND);
 			}
 		}
 	}

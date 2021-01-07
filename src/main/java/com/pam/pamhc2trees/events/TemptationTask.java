@@ -1,5 +1,6 @@
 package com.pam.pamhc2trees.events;
 
+import com.pam.pamhc2trees.Pamhc2trees;
 import com.pam.pamhc2trees.entities.ai.MoreTemptation;
 import com.pam.pamhc2trees.init.ItemRegistry;
 
@@ -72,14 +73,19 @@ ItemRegistry.tamarinditem
 	public void onEntitySpawn(EntityJoinWorldEvent event) {
 		Entity entity = event.getEntity();
 
-		if (entity instanceof PigEntity) {
-			PigEntity pig = (PigEntity) entity;
-			pig.goalSelector.addGoal(4, new MoreTemptation(pig, 1.2D, false, Pig));
-		}
+		try {
+			if (entity instanceof PigEntity) {
+				PigEntity pig = (PigEntity) entity;
+				pig.goalSelector.addGoal(4, new MoreTemptation(pig, 1.2D, false, Pig));
+			}
 
-		if (entity instanceof RabbitEntity) {
-			RabbitEntity rabbit = (RabbitEntity) entity;
-			rabbit.goalSelector.addGoal(4, new MoreTemptation(rabbit, 1.2D, false, Rabbit));
+			if (entity instanceof RabbitEntity) {
+				RabbitEntity rabbit = (RabbitEntity) entity;
+				rabbit.goalSelector.addGoal(4, new MoreTemptation(rabbit, 1.2D, false, Rabbit));
+			}
+		} catch (IllegalArgumentException e) {
+			Pamhc2trees.LOGGER.warn("Attempted to add TemptTask to entity ({}, {}) with unsupported navigator:",
+					entity.getType().getRegistryName(), entity.getClass().getName(), e);
 		}
 	}
 }
