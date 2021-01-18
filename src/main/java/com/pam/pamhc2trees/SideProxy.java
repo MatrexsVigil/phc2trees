@@ -53,8 +53,10 @@ public class SideProxy {
 		//Pamhc2trees.LOGGER.debug("common setup");
 		EventSetup.setupEvents();
 
-		CompostRegistry.register();
-		event.enqueueWork(() -> WorldGenRegistry.registerConfiguredFeatures());
+		event.enqueueWork(() -> {
+			CompostRegistry.register();
+			WorldGenRegistry.registerConfiguredFeatures();
+		});
 	}
 
 	private static void enqueueIMC(final InterModEnqueueEvent event) {
