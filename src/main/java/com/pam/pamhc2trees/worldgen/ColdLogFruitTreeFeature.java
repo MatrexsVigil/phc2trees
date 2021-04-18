@@ -204,7 +204,7 @@ public class ColdLogFruitTreeFeature extends Feature<NoFeatureConfig> {
 	
 	private static BlockState getLeaves(int verify)
 	{
-		return Blocks.SPRUCE_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, Integer.valueOf(1));
+		return Blocks.SPRUCE_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1);
 	}
 	
 	private static BlockState getTrunk(int verify)
@@ -215,7 +215,7 @@ public class ColdLogFruitTreeFeature extends Feature<NoFeatureConfig> {
 	private static BlockState getFruit(int verify, Random random)
 	{
 		int i = random.nextInt(2);
-			return BlockRegistry.pammaple.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pammaple.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 
 		
 	}

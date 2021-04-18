@@ -1,19 +1,9 @@
 package com.pam.pamhc2trees;
 
 import com.pam.pamhc2trees.config.Config;
-import com.pam.pamhc2trees.config.FeatureConfig;
-import com.pam.pamhc2trees.config.RightClickConfig;
 import com.pam.pamhc2trees.events.EventSetup;
-import com.pam.pamhc2trees.events.TemptationTask;
-import com.pam.pamhc2trees.events.harvest.FruitHarvest;
-import com.pam.pamhc2trees.init.BlockRegistry;
-import com.pam.pamhc2trees.init.ColdFruitTreeWorldGenRegistry;
-import com.pam.pamhc2trees.init.CompostRegistry;
-import com.pam.pamhc2trees.init.ItemRegistry;
-import com.pam.pamhc2trees.init.ModRenderers;
+import com.pam.pamhc2trees.init.*;
 import com.pam.pamhc2trees.init.TemperateFruitTreeWorldGenRegistry;
-import com.pam.pamhc2trees.init.WarmFruitTreeWorldGenRegistry;
-import com.pam.pamhc2trees.init.WorldGenRegistry;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -55,7 +45,11 @@ public class SideProxy {
 		Pamhc2trees.LOGGER.debug("common setup");
 		EventSetup.setupEvents();
 
-		CompostRegistry.register();
+		// Must do in enqueue work as registering to vanilla registries is not threadsafe as many of the maps are not a synchronized map.
+		event.enqueueWork(() -> {
+			TreeConfiguredFeatures.registerConfiguredFeatures();
+			CompostRegistry.register();
+		});
 	}
 
 	private static void enqueueIMC(final InterModEnqueueEvent event) {
@@ -68,9 +62,9 @@ public class SideProxy {
 	}
 
 	private static void onBiomeLoad(BiomeLoadingEvent event) {
-		TemperateFruitTreeWorldGenRegistry.register(event);
-		WarmFruitTreeWorldGenRegistry.register(event);
-		ColdFruitTreeWorldGenRegistry.register(event);
+		TemperateFruitTreeWorldGenRegistry.addToBiome(event);
+		WarmFruitTreeWorldGenRegistry.addToBiomes(event);
+		ColdFruitTreeWorldGenRegistry.addToBiomes(event);
 
 		// Debug code for printing biome tree features.
 		/*final String features = event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).stream()
@@ -105,11 +99,10 @@ public class SideProxy {
 	static class Server extends SideProxy {
 		Server() {
 			FMLJavaModLoadingContext.get().getModEventBus().addListener(Server::serverSetup);
-
+			FMLJavaModLoadingContext.get().getModEventBus().addListener(Server::serverSetup);
 		}
 
 		private static void serverSetup(FMLDedicatedServerSetupEvent event) {
-
 		}
 	}
 

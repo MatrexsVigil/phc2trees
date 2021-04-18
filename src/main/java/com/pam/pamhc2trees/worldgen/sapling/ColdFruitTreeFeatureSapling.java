@@ -237,7 +237,7 @@ public class ColdFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 	
 	private static BlockState getLeaves(int verify)
 	{
-		return Blocks.SPRUCE_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, Integer.valueOf(1));
+		return Blocks.SPRUCE_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1);
 	}
 	
 	private static BlockState getTrunk(int verify)

@@ -106,7 +106,7 @@ public class WarmLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 	
 	private static BlockState getLeaves(int verify)
 	{
-		return Blocks.JUNGLE_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, Integer.valueOf(1));
+		return Blocks.JUNGLE_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1);
 	}
 	
 	private static BlockState getTrunk(int verify)
@@ -120,12 +120,12 @@ public class WarmLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 		switch (verify) {
 		case 1:
 			if (EnableConfig.cinnamon_worldgen != null)
-			return BlockRegistry.pamcinnamon.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamcinnamon.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 2:
 			if (EnableConfig.paperbark_worldgen != null)
-			return BlockRegistry.pampaperbark.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pampaperbark.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		default:
-			return BlockRegistry.pamalmond.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamalmond.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		}
 	}
 }
