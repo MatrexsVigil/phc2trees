@@ -3,7 +3,7 @@
   "pools": [
     {
       "rolls": 1,
-      "name": "pamalmond0",
+      "name": "pamspiderweb0",
       "entries": [
 	{
           "type": "minecraft:alternatives",
@@ -36,7 +36,7 @@
                   ]
                 }
               ],
-              "name": "pamhc2trees:pamapple"
+              "name": "minecraft:cobweb"
             },
         {
           "type": "minecraft:item",
