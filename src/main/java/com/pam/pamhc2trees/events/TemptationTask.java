@@ -74,12 +74,20 @@ ItemRegistry.tamarinditem
 
 		if (entity instanceof PigEntity) {
 			PigEntity pig = (PigEntity) entity;
-			pig.goalSelector.addGoal(4, new MoreTemptation(pig, 1.2D, false, Pig));
+			try {
+            			pig.goalSelector.addGoal(4, new MoreTemptation(pig, 1.2D, false, Pig));
+            		} catch(IllegalArgumentException e) {
+            			// whoops
+            		}
 		}
 
 		if (entity instanceof RabbitEntity) {
 			RabbitEntity rabbit = (RabbitEntity) entity;
-			rabbit.goalSelector.addGoal(4, new MoreTemptation(rabbit, 1.2D, false, Rabbit));
+			try {
+            			rabbit.goalSelector.addGoal(4, new MoreTemptation(rabbit, 1.2D, false, Rabbit));
+            		} catch(IllegalArgumentException e) {
+            			// whoops
+            		}
 		}
 	}
 }
