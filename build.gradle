@@ -77,9 +77,7 @@ processResources {
         include 'META-INF/mods.toml'
 
         expand 'version': project.version
-    }
 
-    from(sourceSets.main.resources.srcDirs) {
         exclude 'META-INF/mods.toml'
     }
 }
