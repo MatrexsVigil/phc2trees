@@ -3,14 +3,14 @@ package com.pam.pamhc2trees.events;
 import com.pam.pamhc2trees.entities.ai.MoreTemptation;
 import com.pam.pamhc2trees.init.ItemRegistry;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.passive.ChickenEntity;
-import net.minecraft.entity.passive.CowEntity;
-import net.minecraft.entity.passive.PigEntity;
-import net.minecraft.entity.passive.RabbitEntity;
-import net.minecraft.entity.passive.SheepEntity;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.animal.Chicken;
+import net.minecraft.world.entity.animal.Cow;
+import net.minecraft.world.entity.animal.Pig;
+import net.minecraft.world.entity.animal.Rabbit;
+import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -18,7 +18,7 @@ public class TemptationTask {
 
 
 
-	private static final Ingredient Pig = Ingredient.fromItems(
+	private static final Ingredient Pig = Ingredient.of(
 			ItemRegistry.durianitem, 
 			ItemRegistry.oliveitem, 
 			ItemRegistry.candlenutitem, 
@@ -33,7 +33,7 @@ public class TemptationTask {
 			ItemRegistry.pistachioitem
 			);
 
-	private static final Ingredient Rabbit = Ingredient.fromItems(
+	private static final Ingredient Rabbit = Ingredient.of(
 Items.APPLE,
 ItemRegistry.avocadoitem,
 ItemRegistry.cherryitem,
@@ -72,13 +72,13 @@ ItemRegistry.tamarinditem
 	public void onEntitySpawn(EntityJoinWorldEvent event) {
 		Entity entity = event.getEntity();
 
-		if (entity instanceof PigEntity) {
-			PigEntity pig = (PigEntity) entity;
+		if (entity instanceof Pig) {
+			Pig pig = (Pig) entity;
 			pig.goalSelector.addGoal(4, new MoreTemptation(pig, 1.2D, false, Pig));
 		}
 
-		if (entity instanceof RabbitEntity) {
-			RabbitEntity rabbit = (RabbitEntity) entity;
+		if (entity instanceof Rabbit) {
+			Rabbit rabbit = (Rabbit) entity;
 			rabbit.goalSelector.addGoal(4, new MoreTemptation(rabbit, 1.2D, false, Rabbit));
 		}
 	}
