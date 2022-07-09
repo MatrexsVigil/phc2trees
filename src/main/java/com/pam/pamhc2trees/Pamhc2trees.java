@@ -21,7 +21,7 @@ public class Pamhc2trees {
 	
 	public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab("pamhc2trees") {
 		public ItemStack makeIcon() {
-			return new ItemStack(BlockRegistry.apple_sapling);
+			return new ItemStack(BlockRegistry.apple_sapling.get());
 		}
 
 	};
