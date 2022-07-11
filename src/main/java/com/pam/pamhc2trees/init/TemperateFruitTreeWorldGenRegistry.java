@@ -1,562 +1,276 @@
 package com.pam.pamhc2trees.init;
 
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.placement.IPlacementConfig;
-import net.minecraft.world.gen.placement.Placement;
+import java.util.Set;
+
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public class TemperateFruitTreeWorldGenRegistry {
 	
-	public static void register() {
-		
+	public static void addToBiome(BiomeLoadingEvent evt) {
+		ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, evt.getName());
+		Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
+		if ((evt.getClimate().temperature >= 1F || evt.getClimate().temperature < 0.2F) && !types.contains(BiomeDictionary.Type.SPOOKY)) return;
 		//apple
 		if (WorldGenRegistry.apple_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.apple_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}
-								
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.apple_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.apple_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.APPLE_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.APPLE_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.APPLE_WORLDGEN);
+			}
 		}
 		//avocado
 		if (WorldGenRegistry.avocado_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.avocado_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}
-								
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.avocado_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.avocado_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.AVOCADO_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.AVOCADO_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.AVOCADO_WORLDGEN);
+			}
 		}
 		//candlenut
 		if (WorldGenRegistry.candlenut_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.candlenut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}
-								
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.candlenut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.candlenut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
-		}		
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.CANDLENUT_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.CANDLENUT_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.CANDLENUT_WORLDGEN);
+			}
+		}
 		//cherry
 		if (WorldGenRegistry.cherry_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.cherry_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}
-								
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.cherry_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.cherry_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.CHERRY_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.CHERRY_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.CHERRY_WORLDGEN);
+			}
 		}
 		//chestnut
 		if (WorldGenRegistry.chestnut_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.chestnut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.chestnut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.chestnut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.CHESTNUT_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.CHESTNUT_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.CHESTNUT_WORLDGEN);
+			}
 		}
 		//gooseberry
 		if (WorldGenRegistry.gooseberry_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.gooseberry_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}			
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.gooseberry_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}			
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.gooseberry_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.GOOSEBERRY_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.GOOSEBERRY_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.GOOSEBERRY_WORLDGEN);
+			}
 		}
 		//lemon
 		if (WorldGenRegistry.lemon_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.lemon_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}		
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.lemon_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}		
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.lemon_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.LEMON_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.LEMON_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.LEMON_WORLDGEN);
+			}
 		}
 		//nutmeg
 		if (WorldGenRegistry.nutmeg_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.nutmeg_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}	
-								
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.nutmeg_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}	
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.nutmeg_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
-		}		
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.NUTMEG_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.NUTMEG_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.NUTMEG_WORLDGEN);
+			}
+		}
 		//orange
 		if (WorldGenRegistry.orange_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.orange_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}					
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.orange_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}			
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.orange_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.ORANGE_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.ORANGE_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.ORANGE_WORLDGEN);
+			}
 		}
 		//peach
 		if (WorldGenRegistry.peach_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.peach_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}				
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.peach_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}		
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.peach_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.PEACH_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.PEACH_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.PEACH_WORLDGEN);
+			}
 		}
 		//pear
 		if (WorldGenRegistry.pear_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.pear_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}			
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.pear_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}		
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.pear_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.PEAR_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.PEAR_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.PEAR_WORLDGEN);
+			}
 		}
 		//plum
 		if (WorldGenRegistry.plum_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.plum_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}				
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.plum_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}		
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.plum_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.PLUM_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.PLUM_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.PLUM_WORLDGEN);
+			}
 		}
 		//walnut
 		if (WorldGenRegistry.walnut_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.walnut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}				
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.walnut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}		
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.walnut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
-		}		
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.WALNUT_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.WALNUT_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.WALNUT_WORLDGEN);
+			}
+		}
 		//spiderweb
 		if (WorldGenRegistry.avocado_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.spiderweb_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}				
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.spiderweb_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}		
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.spiderweb_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.SPIDERWEB_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.SPIDERWEB_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.SPIDERWEB_WORLDGEN);
+			}
 		}
 		//hazelnut
 		if (WorldGenRegistry.hazelnut_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.hazelnut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}				
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.hazelnut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}	
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.hazelnut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.HAZELNUT_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.HAZELNUT_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.HAZELNUT_WORLDGEN);
+			}
 		}
 		//pawpaw
 		if (WorldGenRegistry.pawpaw_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.pawpaw_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}				
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.pawpaw_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}		
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.pawpaw_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.PAWPAW_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.PAWPAW_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.PAWPAW_WORLDGEN);
+			}
 		}
 		//soursop
 		if (WorldGenRegistry.soursop_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.soursop_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}			
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (!biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-			
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.soursop_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}		
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.soursop_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
+			if (types.contains(BiomeDictionary.Type.FOREST)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.SOURSOP_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS)) {
+						evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+								TreePlacedFeatures.SOURSOP_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.SPOOKY)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.SOURSOP_WORLDGEN);
+			}
 		}
-		
+
 		
 	}
 

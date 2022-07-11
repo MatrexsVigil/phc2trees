@@ -7,10 +7,10 @@ import org.apache.logging.log4j.Logger;
 
 import com.pam.pamhc2trees.init.BlockRegistry;
 
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 
@@ -19,15 +19,15 @@ public class Pamhc2trees {
 	public static final String MOD_ID = "pamhc2trees";
 	public static final Logger LOGGER = LogManager.getLogger();
 	
-	public static final ItemGroup ITEM_GROUP = new ItemGroup("pamhc2trees") {
-		public ItemStack createIcon() {
-			return new ItemStack(BlockRegistry.apple_sapling);
+	public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab("pamhc2trees") {
+		public ItemStack makeIcon() {
+			return new ItemStack(BlockRegistry.apple_sapling.get());
 		}
 
 	};
 
 	public Pamhc2trees() {
-		DistExecutor.runForDist(() -> () -> new SideProxy.Client(), () -> () -> new SideProxy.Server());
+		DistExecutor.safeRunForDist(() -> SideProxy.Client::new, () -> SideProxy.Server::new);
 	}
 
 	@Nonnull

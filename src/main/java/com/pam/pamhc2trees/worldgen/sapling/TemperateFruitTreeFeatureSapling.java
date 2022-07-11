@@ -1,230 +1,246 @@
 package com.pam.pamhc2trees.worldgen.sapling;
 
 import java.util.Random;
-import java.util.function.Function;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import com.pam.pamhc2trees.config.ChanceConfig;
 import com.pam.pamhc2trees.config.DimensionConfig;
 import com.pam.pamhc2trees.config.EnableConfig;
 import com.pam.pamhc2trees.init.BlockRegistry;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class TemperateFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
-	public TemperateFruitTreeFeatureSapling(Function<Dynamic<?>, ? extends NoFeatureConfig> configFactory) {
+public class TemperateFruitTreeFeatureSapling extends Feature<NoneFeatureConfiguration> {
+	public TemperateFruitTreeFeatureSapling(Codec<NoneFeatureConfiguration> configFactory) {
 		super(configFactory);
 	}
 
 	@Override
-	public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random random,
-			BlockPos pos, NoFeatureConfig config) {
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
+		NoneFeatureConfiguration config = pContext.config();
+		WorldGenLevel world = pContext.level();
+		ChunkGenerator generator = pContext.chunkGenerator();
+		Random random = pContext.random();
+		BlockPos pos = pContext.origin();
+
+		return place(config, world, generator, random, pos);
+	}
+
+	@Override
+	public boolean place(NoneFeatureConfiguration config, WorldGenLevel world, ChunkGenerator generator, Random random, BlockPos pos) {
 		if (random.nextInt(ChanceConfig.temperatefruittree_chance.get()) != 0
-				|| DimensionConfig.blacklist.get().contains(world.getDimension().getType().getId())
-				|| !DimensionConfig.whitelist.get().contains(world.getDimension().getType().getId()))
+				|| DimensionConfig.blacklist.get().contains(world.dimensionType().effectsLocation().toString())
+				|| !DimensionConfig.whitelist.get().contains(world.dimensionType().effectsLocation().toString()))
 			return false;
 
-		if (world.getBlockState(pos.down()).getBlock().isIn(BlockTags.DIRT_LIKE)
+		if (isValidGround(world.getBlockState(pos.below()), world, pos)
 				&& world.getBlockState(pos).getMaterial().isReplaceable()) {
-			int type = (int) ((Math.random() * 9) + 1);
+			int type = random.nextInt(17) + 1;
 			generateTree(world, pos, random, type);
 			return true;
 		}
 		return false;
 	}
+	
+	private boolean isValidGround(BlockState state, BlockGetter worldIn, BlockPos pos) {
+		Block block = state.getBlock();
+		return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT
+				|| block == Blocks.PODZOL;
+	}
 
-	public static void generateTree(IWorld world, BlockPos pos, Random random, int verify) {
+	public static void generateTree(WorldGenLevel world, BlockPos pos, Random random, int verify) {
 		BlockState trunk = getTrunk();
 		BlockState leaves = getLeaves();
 		BlockState fruit = getFruit(verify, random);
 
-		world.setBlockState(pos.up(0), trunk, 3);
+		world.setBlock(pos.above(0), trunk, 3);
 		for (int i = 1; i < 6; i++) {
-			if (world.getBlockState(pos.up(i)).getMaterial().isReplaceable())
-				world.setBlockState(pos.up(i), trunk, 3);
+			if (world.getBlockState(pos.above(i)).getMaterial().isReplaceable())
+				world.setBlock(pos.above(i), trunk, 3);
 		}
 		//Layer Fruit
-		if (world.getBlockState(pos.up(2).north()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(2).north(), fruit, 3);//fruit
-		if (world.getBlockState(pos.up(2).south()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(2).south(), fruit, 3);//fruit
-		if (world.getBlockState(pos.up(2).east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(2).east(), fruit, 3);//fruit
-		if (world.getBlockState(pos.up(2).west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(2).west(), fruit, 3);//fruit
+		if (world.getBlockState(pos.above(2).north()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(2).north(), fruit, 3);//fruit
+		if (world.getBlockState(pos.above(2).south()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(2).south(), fruit, 3);//fruit
+		if (world.getBlockState(pos.above(2).east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(2).east(), fruit, 3);//fruit
+		if (world.getBlockState(pos.above(2).west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(2).west(), fruit, 3);//fruit
 		
 		//Layer 1
-		if (world.getBlockState(pos.up(3).north()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).north(), leaves, 3);
-		if (world.getBlockState(pos.up(3).north().north()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).north().north(), leaves, 3);
+		if (world.getBlockState(pos.above(3).north()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).north(), leaves, 3);
+		if (world.getBlockState(pos.above(3).north().north()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).north().north(), leaves, 3);
 		
 		
-		if (world.getBlockState(pos.up(3).north().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).north().west(), leaves, 3);
-		if (world.getBlockState(pos.up(3).north().north().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).north().north().west(), leaves, 3);
-		if (world.getBlockState(pos.up(2).north().north().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(2).north().north().west(), fruit, 3);//fruit
-		if (world.getBlockState(pos.up(3).north().west().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).north().west().west(), leaves, 3);
-		if (world.getBlockState(pos.up(2).north().west().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(2).north().west().west(), fruit, 3);//fruit
-		if (world.getBlockState(pos.up(3).north().north().west().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).north().north().west().west(), leaves, 3);
+		if (world.getBlockState(pos.above(3).north().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).north().west(), leaves, 3);
+		if (world.getBlockState(pos.above(3).north().north().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).north().north().west(), leaves, 3);
+		if (world.getBlockState(pos.above(2).north().north().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(2).north().north().west(), fruit, 3);//fruit
+		if (world.getBlockState(pos.above(3).north().west().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).north().west().west(), leaves, 3);
+		if (world.getBlockState(pos.above(2).north().west().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(2).north().west().west(), fruit, 3);//fruit
+		if (world.getBlockState(pos.above(3).north().north().west().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).north().north().west().west(), leaves, 3);
 		
-		if (world.getBlockState(pos.up(3).north().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).north().east(), leaves, 3);
-		if (world.getBlockState(pos.up(3).north().north().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).north().north().east(), leaves, 3);
-		if (world.getBlockState(pos.up(2).north().north().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(2).north().north().east(), fruit, 3);//fruit
-		if (world.getBlockState(pos.up(3).north().east().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).north().east().east(), leaves, 3);
-		if (world.getBlockState(pos.up(2).north().east().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(2).north().east().east(), fruit, 3);//fruit
-		if (world.getBlockState(pos.up(3).north().north().east().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).north().north().east().east(), leaves, 3);
+		if (world.getBlockState(pos.above(3).north().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).north().east(), leaves, 3);
+		if (world.getBlockState(pos.above(3).north().north().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).north().north().east(), leaves, 3);
+		if (world.getBlockState(pos.above(2).north().north().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(2).north().north().east(), fruit, 3);//fruit
+		if (world.getBlockState(pos.above(3).north().east().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).north().east().east(), leaves, 3);
+		if (world.getBlockState(pos.above(2).north().east().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(2).north().east().east(), fruit, 3);//fruit
+		if (world.getBlockState(pos.above(3).north().north().east().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).north().north().east().east(), leaves, 3);
 		
-		if (world.getBlockState(pos.up(3).south()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).south(), leaves, 3);
-		if (world.getBlockState(pos.up(3).south().south()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).south().south(), leaves, 3);
+		if (world.getBlockState(pos.above(3).south()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).south(), leaves, 3);
+		if (world.getBlockState(pos.above(3).south().south()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).south().south(), leaves, 3);
 		
-		if (world.getBlockState(pos.up(3).south().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).south().west(), leaves, 3);
-		if (world.getBlockState(pos.up(3).south().south().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).south().south().west(), leaves, 3);
-		if (world.getBlockState(pos.up(2).south().south().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(2).south().south().west(), fruit, 3);//fruit
-		if (world.getBlockState(pos.up(3).south().west().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).south().west().west(), leaves, 3);
-		if (world.getBlockState(pos.up(2).south().west().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(2).south().west().west(), fruit, 3);//fruit
-		if (world.getBlockState(pos.up(3).south().south().west().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).south().south().west().west(), leaves, 3);
+		if (world.getBlockState(pos.above(3).south().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).south().west(), leaves, 3);
+		if (world.getBlockState(pos.above(3).south().south().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).south().south().west(), leaves, 3);
+		if (world.getBlockState(pos.above(2).south().south().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(2).south().south().west(), fruit, 3);//fruit
+		if (world.getBlockState(pos.above(3).south().west().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).south().west().west(), leaves, 3);
+		if (world.getBlockState(pos.above(2).south().west().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(2).south().west().west(), fruit, 3);//fruit
+		if (world.getBlockState(pos.above(3).south().south().west().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).south().south().west().west(), leaves, 3);
 		
-		if (world.getBlockState(pos.up(3).south().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).south().east(), leaves, 3);
-		if (world.getBlockState(pos.up(3).south().south().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).south().south().east(), leaves, 3);
-		if (world.getBlockState(pos.up(2).south().south().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(2).south().south().east(), fruit, 3);//fruit
-		if (world.getBlockState(pos.up(3).south().east().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).south().east().east(), leaves, 3);
-		if (world.getBlockState(pos.up(2).south().east().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(2).south().east().east(), fruit, 3);//fruit
-		if (world.getBlockState(pos.up(3).south().south().east().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).south().south().east().east(), leaves, 3);
+		if (world.getBlockState(pos.above(3).south().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).south().east(), leaves, 3);
+		if (world.getBlockState(pos.above(3).south().south().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).south().south().east(), leaves, 3);
+		if (world.getBlockState(pos.above(2).south().south().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(2).south().south().east(), fruit, 3);//fruit
+		if (world.getBlockState(pos.above(3).south().east().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).south().east().east(), leaves, 3);
+		if (world.getBlockState(pos.above(2).south().east().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(2).south().east().east(), fruit, 3);//fruit
+		if (world.getBlockState(pos.above(3).south().south().east().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).south().south().east().east(), leaves, 3);
 		
-		if (world.getBlockState(pos.up(3).east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).east(), leaves, 3);
-		if (world.getBlockState(pos.up(3).east().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).east().east(), leaves, 3);
+		if (world.getBlockState(pos.above(3).east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).east(), leaves, 3);
+		if (world.getBlockState(pos.above(3).east().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).east().east(), leaves, 3);
 		
-		if (world.getBlockState(pos.up(3).west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).west(), leaves, 3);
-		if (world.getBlockState(pos.up(3).west().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(3).west().west(), leaves, 3);
+		if (world.getBlockState(pos.above(3).west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).west(), leaves, 3);
+		if (world.getBlockState(pos.above(3).west().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(3).west().west(), leaves, 3);
 		
 		//Layer 2
-		if (world.getBlockState(pos.up(4).north()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).north(), leaves, 3);
-		if (world.getBlockState(pos.up(4).north().north()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).north().north(), leaves, 3);
+		if (world.getBlockState(pos.above(4).north()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).north(), leaves, 3);
+		if (world.getBlockState(pos.above(4).north().north()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).north().north(), leaves, 3);
 		
 		
-		if (world.getBlockState(pos.up(4).north().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).north().west(), leaves, 3);
-		if (world.getBlockState(pos.up(4).north().north().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).north().north().west(), leaves, 3);
-		if (world.getBlockState(pos.up(4).north().west().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).north().west().west(), leaves, 3);
-		//if (world.getBlockState(pos.up(4).north().north().west().west()).getMaterial().isReplaceable())
-		//	world.setBlockState(pos.up(4).north().north().west().west(), leaves, 3);
+		if (world.getBlockState(pos.above(4).north().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).north().west(), leaves, 3);
+		if (world.getBlockState(pos.above(4).north().north().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).north().north().west(), leaves, 3);
+		if (world.getBlockState(pos.above(4).north().west().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).north().west().west(), leaves, 3);
+		//if (world.getBlockState(pos.above(4).north().north().west().west()).getMaterial().isReplaceable())
+		//	world.setBlock(pos.above(4).north().north().west().west(), leaves, 3);
 		
-		if (world.getBlockState(pos.up(4).north().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).north().east(), leaves, 3);
-		if (world.getBlockState(pos.up(4).north().north().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).north().north().east(), leaves, 3);
-		if (world.getBlockState(pos.up(4).north().east().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).north().east().east(), leaves, 3);
-		//if (world.getBlockState(pos.up(4).north().north().east().east()).getMaterial().isReplaceable())
-		//	world.setBlockState(pos.up(4).north().north().east().east(), leaves, 3);
+		if (world.getBlockState(pos.above(4).north().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).north().east(), leaves, 3);
+		if (world.getBlockState(pos.above(4).north().north().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).north().north().east(), leaves, 3);
+		if (world.getBlockState(pos.above(4).north().east().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).north().east().east(), leaves, 3);
+		//if (world.getBlockState(pos.above(4).north().north().east().east()).getMaterial().isReplaceable())
+		//	world.setBlock(pos.above(4).north().north().east().east(), leaves, 3);
 		
-		if (world.getBlockState(pos.up(4).south()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).south(), leaves, 3);
-		if (world.getBlockState(pos.up(4).south().south()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).south().south(), leaves, 3);
+		if (world.getBlockState(pos.above(4).south()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).south(), leaves, 3);
+		if (world.getBlockState(pos.above(4).south().south()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).south().south(), leaves, 3);
 		
-		if (world.getBlockState(pos.up(4).south().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).south().west(), leaves, 3);
-		if (world.getBlockState(pos.up(4).south().south().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).south().south().west(), leaves, 3);
-		if (world.getBlockState(pos.up(4).south().west().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).south().west().west(), leaves, 3);
-		//if (world.getBlockState(pos.up(4).south().south().west().west()).getMaterial().isReplaceable())
-		//	world.setBlockState(pos.up(4).south().south().west().west(), leaves, 3);
+		if (world.getBlockState(pos.above(4).south().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).south().west(), leaves, 3);
+		if (world.getBlockState(pos.above(4).south().south().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).south().south().west(), leaves, 3);
+		if (world.getBlockState(pos.above(4).south().west().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).south().west().west(), leaves, 3);
+		//if (world.getBlockState(pos.above(4).south().south().west().west()).getMaterial().isReplaceable())
+		//	world.setBlock(pos.above(4).south().south().west().west(), leaves, 3);
 		
-		if (world.getBlockState(pos.up(4).south().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).south().east(), leaves, 3);
-		if (world.getBlockState(pos.up(4).south().south().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).south().south().east(), leaves, 3);
-		if (world.getBlockState(pos.up(4).south().east().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).south().east().east(), leaves, 3);
-		//if (world.getBlockState(pos.up(4).south().south().east().east()).getMaterial().isReplaceable())
-		//	world.setBlockState(pos.up(4).south().south().east().east(), leaves, 3);
+		if (world.getBlockState(pos.above(4).south().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).south().east(), leaves, 3);
+		if (world.getBlockState(pos.above(4).south().south().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).south().south().east(), leaves, 3);
+		if (world.getBlockState(pos.above(4).south().east().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).south().east().east(), leaves, 3);
+		//if (world.getBlockState(pos.above(4).south().south().east().east()).getMaterial().isReplaceable())
+		//	world.setBlock(pos.above(4).south().south().east().east(), leaves, 3);
 		
-		if (world.getBlockState(pos.up(4).east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).east(), leaves, 3);
-		if (world.getBlockState(pos.up(4).east().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).east().east(), leaves, 3);
+		if (world.getBlockState(pos.above(4).east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).east(), leaves, 3);
+		if (world.getBlockState(pos.above(4).east().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).east().east(), leaves, 3);
 		
-		if (world.getBlockState(pos.up(4).west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).west(), leaves, 3);
-		if (world.getBlockState(pos.up(4).west().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(4).west().west(), leaves, 3);
+		if (world.getBlockState(pos.above(4).west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).west(), leaves, 3);
+		if (world.getBlockState(pos.above(4).west().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(4).west().west(), leaves, 3);
 		
 		//Layer 3
-		if (world.getBlockState(pos.up(5).north()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(5).north(), leaves, 3);
-		if (world.getBlockState(pos.up(5).north().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(5).north().west(), leaves, 3);
-		if (world.getBlockState(pos.up(5).north().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(5).north().east(), leaves, 3);
-		if (world.getBlockState(pos.up(5).south()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(5).south(), leaves, 3);
-		if (world.getBlockState(pos.up(5).south().west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(5).south().west(), leaves, 3);
-		if (world.getBlockState(pos.up(5).south().east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(5).south().east(), leaves, 3);
-		if (world.getBlockState(pos.up(5).east()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(5).east(), leaves, 3);
-		if (world.getBlockState(pos.up(5).west()).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(5).west(), leaves, 3);
+		if (world.getBlockState(pos.above(5).north()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(5).north(), leaves, 3);
+		if (world.getBlockState(pos.above(5).north().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(5).north().west(), leaves, 3);
+		if (world.getBlockState(pos.above(5).north().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(5).north().east(), leaves, 3);
+		if (world.getBlockState(pos.above(5).south()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(5).south(), leaves, 3);
+		if (world.getBlockState(pos.above(5).south().west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(5).south().west(), leaves, 3);
+		if (world.getBlockState(pos.above(5).south().east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(5).south().east(), leaves, 3);
+		if (world.getBlockState(pos.above(5).east()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(5).east(), leaves, 3);
+		if (world.getBlockState(pos.above(5).west()).getMaterial().isReplaceable())
+			world.setBlock(pos.above(5).west(), leaves, 3);
 		//Layer 4
-		if (world.getBlockState(pos.up(6)).getMaterial().isReplaceable())
-			world.setBlockState(pos.up(6), leaves, 3);
+		if (world.getBlockState(pos.above(6)).getMaterial().isReplaceable())
+			world.setBlock(pos.above(6), leaves, 3);
 
 	}
 	
 	private static BlockState getLeaves()
 	{
-		return Blocks.OAK_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, Integer.valueOf(1));
+		return Blocks.OAK_LEAVES.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1);
 	}
 	
 	private static BlockState getTrunk()
 	{
-		return Blocks.OAK_LOG.getDefaultState();
+		return Blocks.OAK_LOG.defaultBlockState();
 	}
 		
 	private static BlockState getFruit(int verify, Random random)
@@ -233,60 +249,57 @@ public class TemperateFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 		switch (verify) {
 		case 1:
 			if (EnableConfig.apple_worldgen != null)
-			return BlockRegistry.pamapple.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamapple.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 2:
 			if (EnableConfig.avocado_worldgen != null)
-			return BlockRegistry.pamavocado.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamavocado.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 3:
 			if (EnableConfig.candlenut_worldgen != null)
-			return BlockRegistry.pamcandlenut.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamcandlenut.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 4:
 			if (EnableConfig.cherry_worldgen != null)
-			return BlockRegistry.pamcherry.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamcherry.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 5:
 			if (EnableConfig.chestnut_worldgen != null)
-			return BlockRegistry.pamchestnut.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamchestnut.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 6:
 			if (EnableConfig.gooseberry_worldgen != null)
-			return BlockRegistry.pamgooseberry.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamgooseberry.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 7:
 			if (EnableConfig.lemon_worldgen != null)
-			return BlockRegistry.pamlemon.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamlemon.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 8:
 			if (EnableConfig.nutmeg_worldgen != null)
-			return BlockRegistry.pamnutmeg.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamnutmeg.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 9:
 			if (EnableConfig.orange_worldgen != null)
-			return BlockRegistry.pamorange.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamorange.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 10:
 			if (EnableConfig.peach_worldgen != null)
-			return BlockRegistry.pampeach.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pampeach.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 11:
 			if (EnableConfig.pear_worldgen != null)
-			return BlockRegistry.pampear.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pampear.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 12:
 			if (EnableConfig.plum_worldgen != null)
-			return BlockRegistry.pamplum.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamplum.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 13:
 			if (EnableConfig.walnut_worldgen != null)
-			return BlockRegistry.pamwalnut.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamwalnut.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 14:
 			if (EnableConfig.spiderweb_worldgen != null)
-			return BlockRegistry.pamspiderweb.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamspiderweb.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 15:
 			if (EnableConfig.hazelnut_worldgen != null)
-			return BlockRegistry.pamhazelnut.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamhazelnut.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		case 16:
-			if (EnableConfig.hazelnut_worldgen != null)
-			return BlockRegistry.pamhazelnut.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
-		case 17:
 			if (EnableConfig.pawpaw_worldgen != null)
-			return BlockRegistry.pampawpaw.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
-		case 18:
+			return BlockRegistry.pampawpaw.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
+		case 17:
 			if (EnableConfig.soursop_worldgen != null)
-			return BlockRegistry.pamsoursop.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamsoursop.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		default:
-			return BlockRegistry.pamapple.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamapple.get().defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 		}
 	}
 }

@@ -1,70 +1,49 @@
 package com.pam.pamhc2trees.init;
 
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.placement.IPlacementConfig;
-import net.minecraft.world.gen.placement.Placement;
+import java.util.Set;
+
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public class ColdFruitTreeWorldGenRegistry {
 	
-	public static void register() {
-		
+	public static void addToBiomes(BiomeLoadingEvent evt) {
+		ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, evt.getName());
+		Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
 		//maple
 		if (WorldGenRegistry.maple_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.CONIFEROUS).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.maple_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-								
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.COLD).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.maple_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.maple_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}
-			});
+			if (types.contains(BiomeDictionary.Type.CONIFEROUS)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.MAPLE_WORLDGEN);
+			}
+			 else if (types.contains(BiomeDictionary.Type.COLD)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.MAPLE_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS) && types.contains(BiomeDictionary.Type.COLD)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.MAPLE_WORLDGEN);
+			}
 		}
 		//pinenut
 		if (WorldGenRegistry.pinenut_worldgen != null) {
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.CONIFEROUS).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.pinenut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
+			if (types.contains(BiomeDictionary.Type.CONIFEROUS)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.PINENUT_WORLDGEN);
 								
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.COLD).forEach((biome) -> {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.pinenut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-			});
-			BiomeDictionary.getBiomes(BiomeDictionary.Type.HILLS).forEach((biome) -> {
-				if (biome.getTempCategory().equals(Biome.TempCategory.COLD))
-				{
-					if (!biome.getTempCategory().equals(Biome.TempCategory.WARM))
-					{
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-						Biome.createDecoratedFeature(WorldGenRegistry.pinenut_worldgen, IFeatureConfig.NO_FEATURE_CONFIG,
-								Placement.DARK_OAK_TREE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-					}
-				}
-			});
-		}		
-
-				
-				
-		
+			}
+			else if (types.contains(BiomeDictionary.Type.COLD)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.PINENUT_WORLDGEN);
+			}
+			else if (types.contains(BiomeDictionary.Type.HILLS) && types.contains(BiomeDictionary.Type.COLD)) {
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+						TreePlacedFeatures.PINENUT_WORLDGEN);
+			}
+		}
 	}
-
 }

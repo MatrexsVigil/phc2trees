@@ -6,29 +6,31 @@ import java.util.List;
 import com.pam.pamhc2trees.Pamhc2trees;
 import com.pam.pamhc2trees.blocks.BlockPamFruit;
 import com.pam.pamhc2trees.blocks.BlockPamLogFruit;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CropsBlock;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
 public class FruitHarvest {
 
-	private static final Method seedDrops;
+	/*private static final Method seedDrops;
 
 	static {
-		seedDrops = ObfuscationReflectionHelper.findMethod(CropsBlock.class, "func_199772_f");
+		seedDrops = ObfuscationReflectionHelper.findMethod(CropBlock.class, "func_199772_f");
 	}
 
 	private Item getCropSeed(Block block) {
@@ -37,70 +39,49 @@ public class FruitHarvest {
 		}
 
 		catch (Exception e) {
-			Pamhc2trees.LOGGER.error("Where the heck is the seed", e.getLocalizedMessage());
+			Pamhc2trees.LOGGER.error("Where the heck is the seed", e);
 		}
 
 		return null;
-	}
+	}*/
 
 	@SubscribeEvent
 	public void onCropHarvest(RightClickBlock event) {
-		if (event.getPlayer().getHeldItemMainhand().getItem() != Items.BONE_MEAL) {
-			List<ItemStack> drops;
-			if (event.getWorld().getBlockState(event.getPos()).getBlock() instanceof BlockPamFruit) {
-				if (!event.getPlayer().getHeldItemMainhand().isEmpty())
-					event.setCanceled(true);
-				BlockPamFruit fruit = (BlockPamFruit) event.getWorld().getBlockState(event.getPos()).getBlock();
-				if (fruit.isMaxAge(event.getWorld().getBlockState(event.getPos()))) {
-					if (!event.getWorld().isRemote) {
-						drops = Block.getDrops(event.getWorld().getBlockState(event.getPos()),
-								(ServerWorld) event.getWorld(), event.getPos(),
-								event.getWorld().getTileEntity(event.getPos()));
-						for (int i = 0; i < drops.size(); i++) {
-							if (drops.get(i).getItem() != getCropSeed(fruit))
-								event.getWorld()
-										.addEntity(new ItemEntity((World) event.getWorld(), event.getPos().getX(),
-												event.getPos().getY(), event.getPos().getZ(),
-												(ItemStack) drops.get(i)));
-						}}
-						event.getPlayer().addExhaustion(.05F);
-						event.getWorld().playSound((PlayerEntity) null, event.getPos(), SoundEvents.BLOCK_CROP_BREAK,
-								SoundCategory.BLOCKS, 1.0F, 0.8F + event.getWorld().rand.nextFloat() * 0.4F);
-						event.getWorld().setBlockState(event.getPos(), fruit.getDefaultState(), 2);
+		if (event.getPlayer().getItemBySlot(EquipmentSlot.MAINHAND).getItem() != Items.BONE_MEAL) {
 
-					}
-				
-					event.getPlayer().swingArm(Hand.MAIN_HAND);
-				}
-			if (event.getWorld().getBlockState(event.getPos()).getBlock() instanceof BlockPamLogFruit) {
-				if (!event.getPlayer().getHeldItemMainhand().isEmpty())
-					event.setCanceled(true);
-				BlockPamLogFruit fruit = (BlockPamLogFruit) event.getWorld().getBlockState(event.getPos()).getBlock();
-				if (fruit.isMaxAge(event.getWorld().getBlockState(event.getPos()))) {
-					if (!event.getWorld().isRemote) {
-						drops = Block.getDrops(event.getWorld().getBlockState(event.getPos()),
-								(ServerWorld) event.getWorld(), event.getPos(),
-								event.getWorld().getTileEntity(event.getPos()));
-						for (int i = 0; i < drops.size(); i++) {
-							if (drops.get(i).getItem() != getCropSeed(fruit))
-								event.getWorld()
-										.addEntity(new ItemEntity((World) event.getWorld(), event.getPos().getX(),
-												event.getPos().getY(), event.getPos().getZ(),
-												(ItemStack) drops.get(i)));
-						}}
-						event.getPlayer().addExhaustion(.05F);
-						event.getWorld().playSound((PlayerEntity) null, event.getPos(), SoundEvents.BLOCK_CROP_BREAK,
-								SoundCategory.BLOCKS, 1.0F, 0.8F + event.getWorld().rand.nextFloat() * 0.4F);
-						event.getWorld().setBlockState(event.getPos(), fruit.getDefaultState(), 2);
+			BlockState state = event.getWorld().getBlockState(event.getPos());
+			Block block = state.getBlock();
 
+			if (block instanceof BlockPamFruit || block instanceof BlockPamLogFruit) {
+				if (!event.getPlayer().getItemBySlot(EquipmentSlot.MAINHAND).isEmpty())
+					event.setCanceled(true);
+
+				// Really need to move isMaxAge to an interface or something.
+				if ((block instanceof BlockPamFruit && ((BlockPamFruit) block).isMaxAge(state)) || (block instanceof BlockPamLogFruit && ((BlockPamLogFruit) block).isMaxAge(state))) {
+					if (!event.getWorld().isClientSide()) {
+						List<ItemStack> drops = Block.getDrops(event.getWorld().getBlockState(event.getPos()),
+								(ServerLevel) event.getWorld(), event.getPos(),
+								event.getWorld().getBlockEntity(event.getPos()));
+
+						for (int i = 0; i < drops.size(); i++) {
+							//if (drops.get(i).getItem() != getCropSeed(block))
+								event.getWorld()
+								.addFreshEntity(new ItemEntity(event.getWorld(), event.getPos().getX(),
+										event.getPos().getY(), event.getPos().getZ(),
+										drops.get(i)));
+						}
 					}
-				
-					event.getPlayer().swingArm(Hand.MAIN_HAND);
+
+					event.getPlayer().causeFoodExhaustion(.05F);
+					event.getWorld().playSound((Player) null, event.getPos(), SoundEvents.CROP_BREAK,
+							SoundSource.BLOCKS, 1.0F, 0.8F + event.getWorld().random.nextFloat() * 0.4F);
+					event.getWorld().setBlock(event.getPos(), block.defaultBlockState(), 2);
 				}
+				
+				event.getPlayer().swing(InteractionHand.MAIN_HAND);
 			}
-
-			
 		}
 	}
+}
 
 
