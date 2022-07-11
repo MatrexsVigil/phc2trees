@@ -3,43 +3,50 @@ package com.pam.pamhc2trees.worldgen;
 import java.util.Random;
 import java.util.function.Function;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import com.pam.pamhc2trees.config.ChanceConfig;
 import com.pam.pamhc2trees.config.DimensionConfig;
 import com.pam.pamhc2trees.config.EnableConfig;
 import com.pam.pamhc2trees.init.BlockRegistry;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 public class WarmFruitTreeFeature extends Feature<NoFeatureConfig> {
-	public WarmFruitTreeFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> configFactory) {
+	public WarmFruitTreeFeature(Codec<NoFeatureConfig> configFactory) {
 		super(configFactory);
 	}
 
 	@Override
-	public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random random,
+	public boolean generate(ISeedReader world, ChunkGenerator generator, Random random,
 			BlockPos pos, NoFeatureConfig config) {
 		if (random.nextInt(ChanceConfig.warmfruittree_chance.get()) != 0
-				|| DimensionConfig.blacklist.get().contains(world.getDimension().getType().getId())
-				|| !DimensionConfig.whitelist.get().contains(world.getDimension().getType().getId()))
+			|| DimensionConfig.blacklist.get().contains(world.getWorld().getDimensionKey().getLocation().toString())
+			|| (!DimensionConfig.whitelist.get().contains(world.getWorld().getDimensionKey().getLocation().toString()) && DimensionConfig.whitelist.get().size()>0))
 			return false;
 
-		if (world.getBlockState(pos.down()).getBlock().isIn(BlockTags.DIRT_LIKE)
+		if (isValidGround(world.getBlockState(pos.down()), world, pos)
 				&& world.getBlockState(pos).getMaterial().isReplaceable()) {
-			int type = (int) ((Math.random() * 9) + 1);
+			int type = random.nextInt(28) + 1;
 			generateTree(world, pos, random, type);
 			return true;
 		}
 		return false;
+	}
+	
+	private boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
+		Block block = state.getBlock();
+		return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT
+				|| block == Blocks.PODZOL;
 	}
 
 	public static void generateTree(IWorld world, BlockPos pos, Random random, int verify) {
@@ -121,7 +128,7 @@ public class WarmFruitTreeFeature extends Feature<NoFeatureConfig> {
 	
 	private static BlockState getLeaves(int verify)
 	{
-		return Blocks.JUNGLE_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, Integer.valueOf(1));
+		return Blocks.JUNGLE_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1);
 	}
 	
 	private static BlockState getTrunk(int verify)
@@ -135,90 +142,90 @@ public class WarmFruitTreeFeature extends Feature<NoFeatureConfig> {
 		switch (verify) {
 		case 1:
 			if (EnableConfig.almond_worldgen != null)
-			return BlockRegistry.pamalmond.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamalmond.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 2:
 			if (EnableConfig.apricot_worldgen != null)
-			return BlockRegistry.pamapricot.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamapricot.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 3:
 			if (EnableConfig.banana_worldgen != null)
-			return BlockRegistry.pambanana.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pambanana.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 4:
 			if (EnableConfig.cashew_worldgen != null)
-			return BlockRegistry.pamcashew.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamcashew.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 5:
 			if (EnableConfig.coconut_worldgen != null)
-			return BlockRegistry.pamcoconut.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamcoconut.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 6:
 			if (EnableConfig.date_worldgen != null)
-			return BlockRegistry.pamdate.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamdate.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 7:
 			if (EnableConfig.dragonfruit_worldgen != null)
-			return BlockRegistry.pamdragonfruit.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamdragonfruit.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 8:
 			if (EnableConfig.durian_worldgen != null)
-			return BlockRegistry.pamdurian.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamdurian.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 9:
 			if (EnableConfig.fig_worldgen != null)
-			return BlockRegistry.pamfig.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamfig.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 10:
 			if (EnableConfig.grapefruit_worldgen != null)
-			return BlockRegistry.pamgrapefruit.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamgrapefruit.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 11:
 			if (EnableConfig.lime_worldgen != null)
-			return BlockRegistry.pamlime.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamlime.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 12:
 			if (EnableConfig.mango_worldgen != null)
-			return BlockRegistry.pammango.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pammango.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 13:
 			if (EnableConfig.olive_worldgen != null)
-			return BlockRegistry.pamolive.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamolive.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 14:
 			if (EnableConfig.papaya_worldgen != null)
-			return BlockRegistry.pampapaya.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pampapaya.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 15:
 			if (EnableConfig.pecan_worldgen != null)
-			return BlockRegistry.pampecan.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pampecan.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 16:
 			if (EnableConfig.peppercorn_worldgen != null)
-			return BlockRegistry.pampeppercorn.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pampeppercorn.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 17:
 			if (EnableConfig.persimmon_worldgen != null)
-			return BlockRegistry.pampersimmon.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pampersimmon.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 18:
 			if (EnableConfig.pistachio_worldgen != null)
-			return BlockRegistry.pampistachio.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pampistachio.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 19:
 			if (EnableConfig.pomegranate_worldgen != null)
-			return BlockRegistry.pampomegranate.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pampomegranate.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 20:
 			if (EnableConfig.starfruit_worldgen != null)
-			return BlockRegistry.pamstarfruit.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamstarfruit.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 21:
 			if (EnableConfig.vanillabean_worldgen != null)
-			return BlockRegistry.pamvanillabean.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamvanillabean.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 22:
 			if (EnableConfig.breadfruit_worldgen != null)
-			return BlockRegistry.pambreadfruit.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pambreadfruit.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 23:
 			if (EnableConfig.guava_worldgen != null)
-			return BlockRegistry.pamguava.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamguava.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 24:
 			if (EnableConfig.jackfruit_worldgen != null)
-			return BlockRegistry.pamjackfruit.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamjackfruit.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 25:
 			if (EnableConfig.lychee_worldgen != null)
-			return BlockRegistry.pamlychee.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamlychee.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 26:
 			if (EnableConfig.passionfruit_worldgen != null)
-			return BlockRegistry.pampassionfruit.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pampassionfruit.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 27:
 			if (EnableConfig.rambutan_worldgen != null)
-			return BlockRegistry.pamrambutan.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamrambutan.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 28:
 			if (EnableConfig.tamarind_worldgen != null)
-			return BlockRegistry.pamtamarind.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamtamarind.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		default:
-			return BlockRegistry.pamalmond.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamalmond.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		}
 	}
 }

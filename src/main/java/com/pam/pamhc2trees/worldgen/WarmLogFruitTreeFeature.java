@@ -3,43 +3,49 @@ package com.pam.pamhc2trees.worldgen;
 import java.util.Random;
 import java.util.function.Function;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import com.pam.pamhc2trees.config.ChanceConfig;
 import com.pam.pamhc2trees.config.DimensionConfig;
 import com.pam.pamhc2trees.config.EnableConfig;
 import com.pam.pamhc2trees.init.BlockRegistry;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 public class WarmLogFruitTreeFeature extends Feature<NoFeatureConfig> {
-	public WarmLogFruitTreeFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> configFactory) {
+	public WarmLogFruitTreeFeature(Codec<NoFeatureConfig> configFactory) {
 		super(configFactory);
 	}
 
 	@Override
-	public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random random,
+	public boolean generate(ISeedReader world, ChunkGenerator generator, Random random,
 			BlockPos pos, NoFeatureConfig config) {
 		if (random.nextInt(ChanceConfig.warmfruittree_chance.get()) != 0
-				|| DimensionConfig.blacklist.get().contains(world.getDimension().getType().getId())
-				|| !DimensionConfig.whitelist.get().contains(world.getDimension().getType().getId()))
+			|| DimensionConfig.blacklist.get().contains(world.getWorld().getDimensionKey().getLocation().toString())
+			|| (!DimensionConfig.whitelist.get().contains(world.getWorld().getDimensionKey().getLocation().toString()) && DimensionConfig.whitelist.get().size()>0))
 			return false;
-
-		if (world.getBlockState(pos.down()).getBlock().isIn(BlockTags.DIRT_LIKE)
+		if (isValidGround(world.getBlockState(pos.down()), world, pos)
 				&& world.getBlockState(pos).getMaterial().isReplaceable()) {
-			int type = (int) ((Math.random() * 9) + 1);
+			int type = random.nextInt(2) + 1;
 			generateTree(world, pos, random, type);
 			return true;
 		}
 		return false;
+	}
+	
+	private boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
+		Block block = state.getBlock();
+		return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT
+				|| block == Blocks.PODZOL;
 	}
 
 	public static void generateTree(IWorld world, BlockPos pos, Random random, int verify) {
@@ -99,7 +105,7 @@ public class WarmLogFruitTreeFeature extends Feature<NoFeatureConfig> {
 	
 	private static BlockState getLeaves(int verify)
 	{
-		return Blocks.JUNGLE_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, Integer.valueOf(1));
+		return Blocks.JUNGLE_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1);
 	}
 	
 	private static BlockState getTrunk(int verify)
@@ -113,12 +119,12 @@ public class WarmLogFruitTreeFeature extends Feature<NoFeatureConfig> {
 		switch (verify) {
 		case 1:
 			if (EnableConfig.cinnamon_worldgen != null)
-			return BlockRegistry.pamcinnamon.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamcinnamon.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 2:
 			if (EnableConfig.paperbark_worldgen != null)
-			return BlockRegistry.pampaperbark.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pampaperbark.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		default:
-			return BlockRegistry.pamalmond.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(i));
+			return BlockRegistry.pamalmond.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		}
 	}
 }

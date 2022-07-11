@@ -9,12 +9,12 @@ import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
 public class BlockPamLogFruit extends Block implements IGrowable {
 	private String name;
@@ -46,17 +46,8 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	      return state.get(this.getAgeProperty()) >= this.getMaxAge();
 	   }
 	
-	@Override
-	public float getBlockHardness(BlockState blockState, IBlockReader worldIn, BlockPos pos) {
-		if(blockState.get(AGE) >= 7) {
-			return 2f;
-		} else
-
-		return 5f;
-	   }
-	
 	@SuppressWarnings("deprecation")
-	public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
+	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
 		if (!state.isValidPosition(worldIn, pos)) {
 	         worldIn.destroyBlock(pos, true);
 	      }
@@ -87,8 +78,7 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	      return MathHelper.nextInt(worldIn.rand, 2, 5);
 	   }
 
-	@Override
-	public void grow(World worldIn, Random rand, BlockPos pos, BlockState state) {
+	public void growFruit(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
 		int i = this.getAge(state) + this.getBonemealAgeIncrease(worldIn);
 	      int j = this.getMaxAge();
 	      if (i > j) {
@@ -99,20 +89,20 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	}
 	
 
-	public BlockRenderLayer getRenderLayer() {
-	      return BlockRenderLayer.SOLID;
-	   }
+	
 
 
 
 	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
 
-		
-
 		return true;
 		
 	}
-	
-	
+
+	@Override
+	public void grow(ServerWorld p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
+		this.growFruit(p_225535_1_, p_225535_2_, p_225535_3_, p_225535_4_);
+		
+	}
 }
